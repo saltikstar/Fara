@@ -1,0 +1,874 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Сайт (Copy)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: редакционный стиль консалтинга — белый фон, полосы глубокого тёмно-синего, антиквенные заголовки, тонкие линейки, прямые углы, кобальтовый акцент. Порядок: герой → лента клиентов → о себе → услуги → калькулятор → фильтр → заявка → этапы → клиенты. Единый светлый вид по выбору. */
+:root{
+  color-scheme:light;
+  --navy:#051C2C;
+  --navy-2:#0B2A40;
+  --cobalt:#2251FF;
+  --cobalt-dk:#153BD1;
+  --sky:#8FB0FF;
+  --white:#FFFFFF;
+  --soft:#F3F4F5;
+  --ink:#051C2C;
+  --muted:#626A70;
+  --line:#D9DDE0;
+  --line-dk:rgba(255,255,255,.16);
+  --on-dark-muted:#A9B7C2;
+  --bad:#B23A2E;
+  --wa:#1FAF38;
+  --f-serif:"PT Serif",Georgia,"Times New Roman",serif;
+  --f-sans:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--ink);font-family:var(--f-sans);font-size:17px;line-height:1.6}
+.wrap{max-width:1200px;margin-inline:auto;padding-inline:24px}
+@media (max-width:480px){.wrap{padding-inline:16px}}
+h1,h2,h3{margin:0;text-wrap:balance}
+h1,h2{font-family:var(--f-serif);font-weight:400;letter-spacing:-.01em}
+h2{font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1.15}
+h3{font-family:var(--f-sans);font-size:1.1rem;font-weight:600;line-height:1.35}
+p{margin:0}
+.kicker{font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--cobalt)}
+.dark .kicker{color:var(--sky)}
+.muted{color:var(--muted)}
+.band{padding-block:clamp(64px,9vw,112px)}
+.band.soft{background:var(--soft)}
+.band.dark{background:var(--navy);color:var(--white)}
+.head{display:grid;gap:16px;max-width:760px;margin-bottom:48px}
+.head p{font-size:1.1rem}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font:600 1rem var(--f-sans);padding:15px 26px;border-radius:0;border:0;cursor:pointer;text-decoration:none;transition:background .15s ease,color .15s ease}
+.btn-cobalt{background:var(--cobalt);color:var(--white)}
+.btn-cobalt:hover{background:var(--cobalt-dk)}
+.btn-white{background:var(--white);color:var(--navy)}
+.btn-white:hover{background:#E6ECFF}
+.btn-line{background:transparent;color:var(--ink);border:1.5px solid #B8C0C6}
+.btn-line:hover{border-color:var(--ink)}
+.btn .arr{display:inline-block;transition:transform .15s ease}
+.btn:hover .arr{transform:translateX(3px)}
+:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}
+.dark :focus-visible,.hero :focus-visible{outline-color:var(--sky)}
+
+/* шапка */
+.top{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);z-index:20}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px 20px;min-height:72px}
+.brand{display:block;color:var(--navy);text-decoration:none}
+.brand b{display:block;font-family:var(--f-serif);font-weight:700;font-size:1.25rem;line-height:1.1}
+.brand small{display:block;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.66rem;color:var(--cobalt);margin-top:4px}
+.top nav{display:flex;gap:22px;align-items:center;margin-left:auto}
+.lang{display:flex;border:1px solid var(--line);flex:none}
+.lang button{font:600 .78rem var(--f-sans);letter-spacing:.04em;padding:8px 10px;border:0;background:var(--white);color:var(--muted);cursor:pointer}
+.lang button+button{border-left:1px solid var(--line)}
+.lang button[aria-pressed="true"]{background:var(--navy);color:var(--white)}
+.lang button:hover{color:var(--ink)}
+.lang button[aria-pressed="true"]:hover{color:var(--white)}
+.top nav a{color:var(--ink);text-decoration:none;font-size:.92rem;white-space:nowrap}
+.top nav a:hover{color:var(--cobalt)}
+.top nav .btn{padding:11px 18px;font-size:.9rem;color:var(--white)}
+@media (max-width:1140px){.top nav a:not(.btn){display:none}}
+@media (max-width:760px){.top nav{display:none}}
+
+/* герой */
+.hero{background:var(--navy);color:var(--white);position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:1;padding-block:clamp(56px,9vw,112px) 0}
+.hero-grid{display:grid;gap:26px;max-width:880px}
+.hero .kicker{color:var(--sky)}
+.hero h1{font-size:clamp(2.3rem,6vw,4.4rem);line-height:1.04}
+.hero h1 em{font-style:italic;color:var(--sky)}
+.hero .lead{font-size:clamp(1.08rem,1.6vw,1.3rem);color:#CFD8DF;max-width:44ch}
+.hero-cta{display:flex;gap:18px 32px;flex-wrap:wrap;align-items:center;margin-top:6px}
+.phone{display:grid;gap:2px}
+.phone span{font-size:.8rem;color:var(--on-dark-muted);text-transform:uppercase;letter-spacing:.12em}
+.phone div{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.phone code{font-family:var(--f-sans);font-weight:600;font-size:1.2rem;letter-spacing:.02em;user-select:all;color:var(--white)}
+.copy{font:500 .8rem var(--f-sans);padding:5px 10px;border:1px solid var(--line-dk);background:transparent;color:var(--on-dark-muted);cursor:pointer}
+.copy:hover{color:var(--white);border-color:rgba(255,255,255,.4)}
+.hero-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.55}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(48px,7vw,88px);border-top:1px solid var(--line-dk)}
+.stat{padding:28px 24px 36px 0;display:grid;gap:6px;min-width:0}
+.stat+.stat{padding-left:24px;border-left:1px solid var(--line-dk)}
+.stat b{font-family:var(--f-serif);font-weight:400;font-size:clamp(1.9rem,4vw,3.2rem);line-height:1;font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.stat span{color:var(--on-dark-muted);font-size:.95rem}
+@media (max-width:760px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(3){padding-left:0;border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line-dk)}}
+
+/* лента клиентов */
+.ticker{border-bottom:1px solid var(--line);background:var(--white);padding-block:22px;overflow:hidden}
+.ticker .wrap{display:flex;align-items:center;gap:32px}
+.ticker-label{flex:none;width:170px;font-size:.85rem;color:var(--muted);line-height:1.35}
+.ticker-label b{display:block;font-family:var(--f-serif);font-weight:700;font-size:1.5rem;color:var(--navy);white-space:nowrap}
+.ticker-view{flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.ticker-track{display:flex;gap:40px;width:max-content;animation:scroll 50s linear infinite}
+.ticker-view:hover .ticker-track{animation-play-state:paused}
+.ticker-track img{height:64px;width:auto;display:block;filter:grayscale(1);opacity:.7;mix-blend-mode:multiply;transition:filter .2s ease,opacity .2s ease}
+.ticker-track img:hover{filter:none;opacity:1}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@media (max-width:640px){.ticker .wrap{flex-direction:column;align-items:flex-start;gap:12px}.ticker-label{width:auto}.ticker-label b{display:inline;font-size:1.2rem;margin-right:6px}.ticker-view{width:100%}}
+@media (prefers-reduced-motion:reduce){.ticker-track{animation:none}.ticker-view{overflow-x:auto}}
+
+/* о себе */
+.about{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,96px);align-items:start}
+.about-l{display:grid;gap:18px}
+.about-r{display:grid;gap:24px;min-width:0}
+.about-r .big{font-family:var(--f-serif);font-size:clamp(1.3rem,2.2vw,1.65rem);line-height:1.4}
+.about-r p{max-width:62ch}
+.pull{border-left:2px solid var(--cobalt);padding-left:20px;color:var(--muted);font-size:1.05rem}
+@media (max-width:900px){.about{grid-template-columns:1fr}}
+
+.biz-block{margin-top:clamp(56px,8vw,88px)}
+.biz-top{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--ink);padding-bottom:16px;margin-bottom:28px}
+.biz-top h3{font-family:var(--f-serif);font-weight:400;font-size:clamp(1.4rem,2.4vw,1.9rem)}
+.biz{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.biz-card{display:grid;gap:12px;align-content:start;min-width:0;background:var(--soft);padding:30px 28px 34px;border-top:3px solid var(--navy)}
+.biz-meta{font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--cobalt)}
+.biz-card h4{margin:0;font-family:var(--f-serif);font-weight:700;font-size:1.3rem;line-height:1.25}
+.biz-card p{font-size:.98rem;color:var(--muted)}
+@media (max-width:1100px){.biz{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.biz{grid-template-columns:1fr}}
+
+/* услуги */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink)}
+.svc-col{padding:32px 32px 8px 0;display:grid;gap:18px;align-content:start;min-width:0}
+.svc-col+.svc-col{padding-left:32px;border-left:1px solid var(--line)}
+.svc-col .num{font-family:var(--f-serif);font-size:1rem;color:var(--muted)}
+.svc-col h3{font-family:var(--f-serif);font-weight:400;font-size:1.6rem}
+.svc-col ul{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.svc-col li{display:grid;grid-template-columns:24px 1fr;gap:10px;padding:13px 0;border-bottom:1px solid var(--line);font-size:1.02rem}
+.svc-col li::before{content:"→";color:var(--cobalt);font-weight:600}
+.svc-col li.key{font-weight:600}
+@media (max-width:860px){.svc{grid-template-columns:1fr}.svc-col{padding-right:0}.svc-col+.svc-col{padding-left:0;border-left:0}}
+
+/* калькулятор */
+.calc{display:grid;grid-template-columns:7fr 5fr;border:1px solid var(--line);background:var(--white)}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:clamp(20px,3vw,40px);min-width:0}
+.field{display:grid;gap:8px;min-width:0}
+.field label{font-size:.88rem;color:var(--muted);font-weight:500}
+input,select{font:500 1rem var(--f-sans);color:var(--ink);background:var(--white);border:0;border-bottom:1.5px solid #B8C0C6;border-radius:0;padding:10px 2px;width:100%;min-width:0}
+input:focus,select:focus{border-bottom-color:var(--cobalt);outline:none}
+input[type=number]{font-variant-numeric:tabular-nums}
+.result{display:grid;align-content:start;min-width:0;background:var(--navy);color:var(--white);padding:clamp(20px,3vw,40px)}
+.row{display:flex;justify-content:space-between;gap:12px;padding-block:11px;border-bottom:1px solid var(--line-dk);font-variant-numeric:tabular-nums}
+.row span:first-child{color:var(--on-dark-muted)}
+.row span:last-child{font-weight:600}
+.verdict{margin-top:22px;display:grid;gap:6px}
+.verdict span{color:var(--on-dark-muted);font-size:.9rem}
+.verdict b{font-family:var(--f-serif);font-weight:400;font-size:2.4rem;line-height:1;font-variant-numeric:lining-nums tabular-nums}
+.verdict.plus b{color:#8EE0B0}
+.verdict.minus b{color:#FFA89C}
+.verdict p{color:#D5DEE5;font-size:.93rem}
+.note{font-size:.85rem;color:var(--muted);grid-column:1/-1}
+.romi-note{font-size:.85rem;color:var(--on-dark-muted);margin-top:14px}
+@media (max-width:900px){.calc{grid-template-columns:1fr}}
+@media (max-width:440px){.fields{grid-template-columns:1fr}}
+
+/* фильтр */
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line-dk)}
+.fit-col{padding:32px 40px 8px 0;display:grid;gap:20px;align-content:start;min-width:0}
+.fit-col+.fit-col{padding-left:40px;border-left:1px solid var(--line-dk)}
+.fit-col h3{font-family:var(--f-serif);font-weight:400;font-size:1.5rem}
+.fit ul{margin:0;padding:0;list-style:none;display:grid;gap:14px}
+.fit li{display:grid;grid-template-columns:26px 1fr;gap:8px;color:#D5DEE5}
+.fit li::before{font-weight:700}
+.yes li::before{content:"✓";color:var(--sky)}
+.no li::before{content:"✕";color:#FF9C8F;font-size:.9rem;padding-top:2px}
+@media (max-width:760px){.fit{grid-template-columns:1fr}.fit-col{padding-right:0}.fit-col+.fit-col{padding-left:0;border-left:0;border-top:1px solid var(--line-dk);margin-top:24px}}
+
+/* заявка */
+.apply{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,96px);align-items:start}
+.apply-l{display:grid;gap:18px}
+.apply-l .ph{font-family:var(--f-serif);font-size:1.6rem;margin-top:8px}
+.apply form{background:var(--white);border-top:3px solid var(--cobalt);padding:clamp(20px,3vw,40px);display:grid;gap:22px;min-width:0;box-shadow:0 1px 2px rgba(5,28,44,.06),0 12px 32px rgba(5,28,44,.08)}
+.progress{display:grid;gap:10px}
+.progress-top{display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted)}
+.progress-top b{color:var(--ink);font-weight:600}
+.bar{height:3px;background:var(--line);position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;background:var(--cobalt);transition:width .25s ease}
+.step{display:grid;gap:22px}
+fieldset{border:0;padding:0;margin:0;display:grid;gap:8px}
+legend{font-size:.98rem;font-weight:600;margin-bottom:8px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.opt span{display:inline-block;padding:10px 15px;border:1px solid #B8C0C6;font-size:.95rem;background:var(--white);cursor:pointer}
+.opt input:checked+span{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.opt input:focus-visible+span{outline:3px solid var(--cobalt);outline-offset:2px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-nav{display:flex;gap:12px;flex-wrap:wrap}
+@media (max-width:900px){.apply{grid-template-columns:1fr}}
+@media (max-width:480px){.two{grid-template-columns:1fr}}
+.out{padding:20px;display:grid;gap:12px}
+.out.ok{background:#EAF0FF}
+.out.stop{background:#FBECEA}
+.out ul{margin:0;padding-left:1.1em}
+.err{color:var(--bad);font-size:.9rem}
+
+/* этапы */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:0;counter-reset:s}
+.steps li{counter-increment:s;padding:32px 32px 8px 0;border-top:1px solid var(--ink);display:grid;gap:12px;align-content:start;min-width:0}
+.steps li+li{padding-left:32px;border-left:1px solid var(--line)}
+.steps li::before{content:"0" counter(s);font-family:var(--f-serif);font-size:3rem;line-height:1;color:var(--cobalt)}
+.steps h3{font-family:var(--f-serif);font-weight:400;font-size:1.45rem}
+@media (max-width:760px){.steps{grid-template-columns:1fr}.steps li+li{padding-left:0;border-left:0}.steps li{padding-bottom:28px}}
+.metrics{margin-top:44px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.metrics .label{font-size:.95rem;color:var(--muted);margin-right:8px}
+.tag{font-size:.9rem;font-weight:600;padding:8px 14px;border:1px solid var(--ink)}
+
+/* клиенты */
+.clients-top{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.clients-top .head{margin:0}
+.count{font-family:var(--f-serif);font-size:clamp(3rem,6vw,4.6rem);line-height:.9;color:var(--navy)}
+.count small{display:block;font-family:var(--f-sans);font-size:.85rem;color:var(--muted);margin-top:10px}
+.logos{display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.logos figure{margin:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px;display:grid;place-items:center;background:var(--white)}
+.logos img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;filter:grayscale(1);opacity:.78;transition:filter .2s ease,opacity .2s ease}
+.logos figure:hover img{filter:none;opacity:1}
+@media (hover:none){.logos img{filter:none;opacity:1}}
+@media (max-width:900px){.logos{grid-template-columns:repeat(3,1fr)}.logos figure{padding:8px}}
+
+/* финальный призыв и подвал */
+.final{background:var(--navy);color:var(--white)}
+.final .wrap{padding-block:clamp(48px,7vw,80px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.final h2{font-size:clamp(1.6rem,3vw,2.3rem);max-width:22ch}
+.final p{color:#CFD8DF;margin-top:10px}
+footer{background:var(--navy);color:var(--on-dark-muted);border-top:1px solid var(--line-dk)}
+footer .wrap{padding-block:28px 36px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer .brand{color:var(--white)}
+footer .brand small{color:var(--sky)}
+footer p{font-size:.92rem}
+
+/* мобильная панель WhatsApp */
+.mbar{display:none}
+@media (max-width:760px){
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:var(--white);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(5,28,44,.08)}
+  .mbar .btn{flex:1;padding:14px 12px}
+  .mbar .wa{background:var(--wa);color:var(--white);flex:2}
+  body{padding-bottom:78px}
+  html{scroll-padding-bottom:90px}
+}
+.wa-ic{width:20px;height:20px;flex:none}
+
+/* всплывающее меню (планшет и телефон) */
+.top .wrap{position:relative}
+.burger{display:none;flex:none;width:40px;height:36px;border:1px solid var(--line);background:var(--white);cursor:pointer;padding:0;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.burger span{display:block;width:18px;height:2px;background:var(--navy);transition:transform .2s ease,opacity .2s ease}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mmenu{position:absolute;right:24px;top:calc(100% + 6px);min-width:210px;background:var(--white);border:1px solid var(--line);box-shadow:0 12px 32px rgba(5,28,44,.14);display:grid;padding:6px 0;z-index:40}
+.mmenu[hidden]{display:none}
+.mmenu a{padding:11px 18px;color:var(--ink);text-decoration:none;font-size:.95rem}
+.mmenu a:hover,.mmenu a:focus-visible{background:var(--soft);color:var(--cobalt)}
+@media (max-width:1140px){.burger{display:flex;order:3}.lang{order:2}.top nav{order:1}}
+@media (max-width:760px){.top .wrap{gap:10px}.lang{margin-left:auto}.mmenu{right:16px}}
+@media (min-width:1141px){.mmenu{display:none!important}}
+/* политика конфиденциальности */
+.ft-r{display:grid;gap:6px;justify-items:end;text-align:right}
+.ft-legal{font-size:.82rem}
+.ft-legal a{color:var(--sky)}
+@media (max-width:640px){.ft-r{justify-items:start;text-align:left}}
+.consent{display:grid;grid-template-columns:20px 1fr;gap:10px;align-items:start;font-size:.92rem;color:var(--muted);cursor:pointer}
+.consent input{width:18px;height:18px;margin:3px 0 0;padding:0;border:0;accent-color:var(--navy)}
+.consent a{color:var(--cobalt)}
+.pp-overlay{position:fixed;inset:0;z-index:60;background:rgba(5,28,44,.55);display:grid;place-items:center;padding:24px 16px}
+.pp-overlay[hidden]{display:none}
+.pp-panel{position:relative;background:var(--white);color:var(--ink);width:100%;max-width:760px;max-height:calc(100vh - 48px);overflow:auto;border-top:3px solid var(--cobalt);box-shadow:0 24px 60px rgba(0,0,0,.3)}
+.pp-body{padding:clamp(24px,4vw,44px)}
+.pp-body h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:6px;padding-right:40px}
+.pp-date{color:var(--muted);font-size:.9rem;margin-bottom:20px}
+.pp-body h3{font-family:var(--f-sans);font-size:1.02rem;font-weight:600;margin:22px 0 8px}
+.pp-body p,.pp-body li{font-size:.97rem;line-height:1.6}
+.pp-body p+p{margin-top:8px}
+.pp-body ul{margin:6px 0 8px;padding-left:1.2em;display:grid;gap:4px}
+.pp-close{position:sticky;top:0;float:right;margin:12px 12px 0 0;width:36px;height:36px;border:1px solid var(--line);background:var(--white);cursor:pointer;font-size:1rem;z-index:1}
+.pp-close:hover{border-color:var(--ink)}
+body.pp-open{overflow:hidden}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a data-i18n="brand" class="brand" href="#top"><b>Фархад Газитбек</b><small>Маркетинг для МСБ</small></a>
+    <nav aria-label="Разделы">
+      <a data-i18n="nav.about" href="#about">О себе</a>
+      <a data-i18n="nav.services" href="#services">Услуги</a>
+      <a data-i18n="nav.calc" href="#calc">Калькулятор ROMI</a>
+      <a data-i18n="nav.form" href="#apply">Анкета</a>
+      <a data-i18n="nav.steps" href="#steps">Этапы</a>
+      <a data-i18n="nav.clients" href="#clients">Клиенты</a>
+      <a data-i18n="btn.wa" class="btn btn-cobalt" href="https://wa.me/77761600054" target="_blank" rel="noopener">Написать в WhatsApp</a>
+    </nav>
+    <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mmenu" aria-label="Меню"><span></span><span></span><span></span></button>
+    <div class="mmenu" id="mmenu" hidden>
+      <a href="#about" data-i18n="nav.about">О себе</a>
+      <a href="#services" data-i18n="nav.services">Услуги</a>
+      <a href="#calc" data-i18n="nav.calc">Калькулятор ROMI</a>
+      <a href="#apply" data-i18n="nav.form">Анкета</a>
+      <a href="#steps" data-i18n="nav.steps">Этапы</a>
+      <a href="#clients" data-i18n="nav.clients">Клиенты</a>
+    </div>
+    <div class="lang" role="group" aria-label="Язык / Тіл / Language">
+      <button type="button" data-lang="ru" aria-pressed="true">РУ</button>
+      <button type="button" data-lang="kk" aria-pressed="false">ҚАЗ</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <svg class="hero-lines" viewBox="0 0 1200 700" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+    <g fill="none" stroke="#2251FF" stroke-opacity=".22" stroke-width="1">
+      <path d="M620 700 L900 180 L1010 360 L1080 260 L1300 700"/>
+      <path d="M700 700 L900 330 L990 470 L1050 400 L1250 700"/>
+      <path d="M780 700 L900 480 L960 570 L1010 520 L1180 700"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="hero-grid">
+      <h1 data-i18n="hero.h1">Маркетинг, за который я отвечаю <em>словом и цифрами</em></h1>
+      <p data-i18n="hero.lead" class="lead">Я не агентство, всё делаю сам. Проведу диагностику, покажу реальную картину по цифрам и выстрою рекламу, которая окупается.</p>
+      <div class="hero-cta">
+        <a data-i18n="hero.cta" class="btn btn-white" href="#apply">Получить бесплатный разбор <span class="arr">→</span></a>
+        <div class="phone">
+          <span data-i18n="hero.call">Позвоните</span>
+          <div><code id="phone">+7 776 160 00 54</code><button data-i18n="copy" class="copy" type="button" id="copy">Скопировать</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="stats" role="list">
+      <div class="stat" role="listitem"><b data-count="7" data-suffix="+">7+</b><span data-i18n="st1">лет в маркетинге</span></div>
+      <div class="stat" role="listitem"><b data-count="100" data-suffix="+">100+</b><span data-i18n="st2">проектов по РК</span></div>
+      <div class="stat" role="listitem"><b data-count="30" data-suffix="+">30+</b><span data-i18n="st3">ниш бизнеса</span></div>
+      <div class="stat" role="listitem"><b data-count="200000" data-prefix="$" data-suffix="+">$200 000+</b><span data-i18n="st4">рекламного бюджета</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="ticker" aria-label="Клиенты">
+  <div class="wrap">
+    <p data-i18n="ticker" class="ticker-label"><b>Мне доверяют</b>компании из разных ниш</p>
+    <div class="ticker-view">
+      <div class="ticker-track">
+        <img src="logos/t-c-saq.jpg" alt="SAQ" height="64" width="61">
+        <img src="logos/t-l04.jpg" alt="Oral Dent" height="64" width="176">
+        <img src="logos/t-l01.jpg" alt="Qazan Plov" height="64" width="87">
+        <img src="logos/t-l03.jpg" alt="Dermalab" height="64" width="66">
+        <img src="logos/t-c-baris.jpg" alt="BARIS" height="64" width="74">
+        <img src="logos/t-l10.jpg" alt="Vienna Clinic" height="64" width="162">
+        <img src="logos/t-l11.jpg" alt="Gold Dental" height="64" width="141">
+        <img src="logos/t-l21.jpg" alt="Kenat" height="64" width="101">
+        <img src="logos/t-l14.jpg" alt="Dent House" height="64" width="207">
+        <img src="logos/t-l16.jpg" alt="Мегадент" height="64" width="276">
+        <img src="logos/t-l08.jpg" alt="Жиназ House" height="64" width="254">
+        <img src="logos/t-l48.jpg" alt="RTD Energy Service" height="64" width="118">
+        <img src="logos/t-l19.jpg" alt="StroyComfort" height="64" width="116">
+        <img src="logos/t-l23.jpg" alt="Beauty Smile" height="64" width="150">
+        <img src="logos/t-l27.jpg" alt="А7-Инвест" height="64" width="82">
+        <img src="logos/t-l24.jpg" alt="Baby &amp; Mommy" height="64" width="70">
+        <img src="logos/t-l32.jpg" alt="Строй с нами" height="64" width="211">
+        <img src="logos/t-l20.jpg" alt="EcoMaps" height="64" width="61">
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="band" id="about">
+  <div class="wrap">
+    <div class="about">
+      <div class="about-l">
+        <p data-i18n="ab.k" class="kicker">О себе · Фархад Газитбек, Астана</p>
+        <h2 data-i18n="ab.h">Знаю бизнес изнутри, а не только из рекламного кабинета</h2>
+      </div>
+      <div class="about-r">
+        <p data-i18n="ab.big" class="big">Я сам запускал собственные компании и управлял ими: привлекал инвестиции, считал деньги, нанимал людей и отвечал за результат.</p>
+        <p data-i18n="ab.pull" class="pull">Поэтому смотрю на рекламу как владелец. Она должна работать в связке с продажами и воронкой, а не существовать отдельно от бизнеса.</p>
+      </div>
+    </div>
+
+    <div class="biz-block">
+      <div class="biz-top">
+        <h3 data-i18n="biz.h">Бизнесы, которые я запускал</h3>
+        <span data-i18n="biz.s" class="muted">Опыт предпринимателя, а не только маркетолога</span>
+      </div>
+      <div class="biz" role="list">
+        <article class="biz-card" role="listitem">
+          <p data-i18n="b1.m" class="biz-meta">Основал · 2022</p>
+          <h4 data-i18n="b1.h">Маркетинговое агентство</h4>
+          <p data-i18n="b1.p">Основал агентство Gazitbek Marketing Consult: консалтинг для МСБ по РК. Консультировал предпринимателей, управлял специалистами: трафик-менеджеры, разработчики сайтов, дизайнеры, SMM, CRM и т. д.</p>
+        </article>
+        <article class="biz-card" role="listitem">
+          <p data-i18n="b2.m" class="biz-meta">Запустил · 2023–2024</p>
+          <h4 data-i18n="b2.h">Ремонт под ключ</h4>
+          <p data-i18n="b2.p">Запустил вместе с партнёрами компанию по ремонту квартир в Астане: отвечал за маркетинг и отдел продаж.</p>
+        </article>
+        <article class="biz-card" role="listitem">
+          <p data-i18n="b3.m" class="biz-meta">Запустил · 2024</p>
+          <h4 data-i18n="b3.h">Kaspi Магазин</h4>
+          <p data-i18n="b3.p">Запустил собственный магазин электроники на Kaspi: от аналитики, подбора и закупки товаров до продаж и сбора отзывов.</p>
+        </article>
+        <article class="biz-card" role="listitem">
+          <p data-i18n="b4.m" class="biz-meta">Сооснователь · 2024–2025</p>
+          <h4 data-i18n="b4.h">SAQ — доставка восточной еды</h4>
+          <p data-i18n="b4.p">Сооснователь службы доставки в Астане. Отвечал за маркетинг и продажи, а последние полгода полностью управлял компанией сам: кухня, маркетинг, продажи, закупки, курьеры.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band soft" id="services">
+  <div class="wrap">
+    <div class="head">
+      <p data-i18n="sv.k" class="kicker">Что делаю</p>
+      <h2 data-i18n="sv.h">От разработки до окупаемости рекламы</h2>
+    </div>
+    <div class="svc">
+      <div class="svc-col">
+        <span class="num">I</span>
+        <h3 data-i18n="sv.c1">Разработка</h3>
+        <ul>
+          <li data-i18n="sv.1a">Уникальное торговое предложение и оффер</li>
+          <li data-i18n="sv.1b">Разработка сайтов</li>
+          <li data-i18n="sv.1c">Построение и упаковка воронки продаж</li>
+        </ul>
+      </div>
+      <div class="svc-col">
+        <span class="num">II</span>
+        <h3 data-i18n="sv.c2">Реклама</h3>
+        <ul>
+          <li data-i18n="sv.2a">Настройка и ведение рекламных кабинетов Facebook, Instagram, Google, TikTok</li>
+          <li data-i18n="sv.2b">Рекламные тексты, которые цепляют именно вашу аудиторию</li>
+        </ul>
+      </div>
+      <div class="svc-col">
+        <span class="num">III</span>
+        <h3 data-i18n="sv.c3">Аналитика</h3>
+        <ul>
+          <li data-i18n="sv.3a">Анализ маркетинговых показателей</li>
+          <li data-i18n="sv.3b">Анализ управленческой отчётности</li>
+          <li data-i18n="sv.3c" class="key">Расчёт реальной стоимости клиента и окупаемости рекламы (ROMI)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="calc">
+  <div class="wrap">
+    <div class="head">
+      <p data-i18n="nav.calc" class="kicker">Калькулятор ROMI</p>
+      <h2 data-i18n="ca.h">Окупится ли реклама в вашем бизнесе?</h2>
+      <p data-i18n="ca.p" class="muted">Подставьте свои цифры. Если итог в минусе даже при хорошей стоимости заявки, дело не в рекламе, а в экономике продукта или в продажах.</p>
+    </div>
+    <div class="calc">
+      <div class="fields">
+        <div class="field"><label data-i18n="ca.l1" for="c-budget">Рекламный бюджет, ₸/мес</label><input id="c-budget" type="number" min="0" step="10000" value="300000"></div>
+        <div class="field"><label data-i18n="ca.l2" for="c-cpl">Стоимость заявки, ₸</label><input id="c-cpl" type="number" min="1" step="100" value="1500"></div>
+        <div class="field"><label data-i18n="ca.l3" for="c-conv">Заявка → продажа, %</label><input id="c-conv" type="number" min="0" max="100" step="1" value="15"></div>
+        <div class="field"><label data-i18n="ca.l4" for="c-check">Средний чек, ₸</label><input id="c-check" type="number" min="0" step="1000" value="60000"></div>
+        <div class="field"><label data-i18n="ca.l5" for="c-margin">Маржа с продажи, %</label><input id="c-margin" type="number" min="0" max="100" step="1" value="40"></div>
+        <div class="field"><label data-i18n="ca.l6" for="c-fee">Прочие расходы на маркетинг, ₸</label><input id="c-fee" type="number" min="0" step="10000" value="100000"></div>
+        <p data-i18n="ca.note" class="note">Стоят примерные значения для иллюстрации.</p>
+      </div>
+      <div class="result" aria-live="polite">
+        <div class="row"><span data-i18n="ca.r1">Заявок</span><span id="r-leads">—</span></div>
+        <div class="row"><span data-i18n="ca.r2">Продаж</span><span id="r-sales">—</span></div>
+        <div class="row"><span data-i18n="ca.r3">Выручка</span><span id="r-rev">—</span></div>
+        <div class="row"><span data-i18n="ca.r4">Маржа с продаж</span><span id="r-gross">—</span></div>
+        <div class="row"><span data-i18n="ca.r5">Все расходы на маркетинг</span><span id="r-cost">—</span></div>
+        <div class="row"><span>ROMI</span><span id="r-romi">—</span></div>
+        <div class="verdict" id="r-verdict"><span data-i18n="ca.tot">Итог за месяц</span><b id="r-net">—</b><p id="r-text"></p></div>
+        <p data-i18n="ca.romi" class="romi-note">ROMI показывает, сколько процентов прибыли вернул каждый тенге, вложенный в маркетинг.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band dark" id="fit">
+  <div class="wrap">
+    <div class="head">
+      <p data-i18n="fi.k" class="kicker">С кем работаю</p>
+      <h2 data-i18n="fi.h">Беру не всех, и это в ваших интересах</h2>
+      <p data-i18n="fi.p" style="color:#CFD8DF">Если реклама в вашей нише не окупится, я скажу об этом прямо на разборе.</p>
+    </div>
+    <div class="fit">
+      <div class="fit-col yes">
+        <h3 data-i18n="fi.yes">Мы сработаемся, если</h3>
+        <ul>
+          <li data-i18n="fi.y1">Вы понимаете ценность маркетинга и готовы доверить его специалисту</li>
+          <li data-i18n="fi.y2">Продукт конкурентоспособный</li>
+          <li data-i18n="fi.y3">Вы понимаете, что рост продаж зависит от всех членов вашей команды, а не только от маркетолога</li>
+          <li data-i18n="fi.y4">Удобно работать дистанционно: созвон или видео вместо встреч в офисе</li>
+        </ul>
+      </div>
+      <div class="fit-col no">
+        <h3 data-i18n="fi.no">Не работаю, если</h3>
+        <ul>
+          <li data-i18n="fi.n1">Ниша: алкоголь, табак, азартные игры, ипотека, духовные практики и подобное</li>
+          <li data-i18n="fi.n2">Нужен ежедневный отчёт и контроль каждого шага</li>
+          <li data-i18n="fi.n3">Маркетолог для вас = «креативщик»</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band soft" id="apply">
+  <div class="wrap apply">
+    <div class="apply-l">
+      <p data-i18n="ap.k" class="kicker">Бесплатный разбор</p>
+      <h2 data-i18n="ap.h">Разберу ваш бизнес бесплатно и покажу, где теряются деньги</h2>
+      <p data-i18n="ap.p1" class="muted">Пять коротких полей, меньше минуты. Затем откроется WhatsApp с готовым сообщением: останется нажать «Отправить».</p>
+      <p data-i18n="ap.p2" class="muted">Разбор ни к чему не обязывает.</p>
+      <p class="ph">+7 776 160 00 54</p>
+      <p data-i18n="ap.ph" class="muted" style="margin-top:-12px">WhatsApp и звонки</p>
+    </div>
+    <form id="form" novalidate>
+
+      <div class="step" data-step="1">
+        <div class="two">
+          <div class="field"><label data-i18n="f.name" for="f-name">Имя</label><input id="f-name" autocomplete="name" placeholder="Айгерим"></div>
+          <div class="field"><label data-i18n="f.rev" for="f-revenue">Выручка за месяц</label>
+            <select id="f-revenue">
+              <option data-i18n="f.choose" value="">Выберите</option>
+              <option data-i18n="rv1">до 1 млн ₸</option>
+              <option data-i18n="rv2">1–3 млн ₸</option>
+              <option data-i18n="rv3">3–10 млн ₸</option>
+              <option data-i18n="rv4">10–30 млн ₸</option>
+              <option data-i18n="rv5">больше 30 млн ₸</option>
+            </select></div>
+        </div>
+        <div class="field"><label data-i18n="f.city" for="f-city">Город</label><input id="f-city" placeholder="Астана"></div>
+        <div class="field"><label data-i18n="f.niche" for="f-niche">Ниша и продукт</label><input id="f-niche" placeholder="Например: мебель на заказ, средний чек 400 000 ₸" data-i18n-ph="ph.niche"></div>
+        <div class="field"><label data-i18n="f.budget" for="f-budget">Рекламный бюджет в месяц</label>
+          <select id="f-budget">
+            <option data-i18n="f.choose" value="">Выберите</option>
+            <option data-i18n="bd1">до 100 000 ₸</option>
+            <option data-i18n="bd2">100 000 – 300 000 ₸</option>
+            <option data-i18n="bd3">300 000 – 1 000 000 ₸</option>
+            <option data-i18n="bd4">больше 1 000 000 ₸</option>
+          </select></div>
+        <label class="consent" for="f-consent"><input type="checkbox" id="f-consent"><span data-i18n="f.consent">Я согласен(на) на обработку данных и принимаю <a href="#privacy" class="pp-link">политику конфиденциальности</a></span></label>
+      </div>
+
+      <p class="err" id="f-err" hidden></p>
+      <div class="form-nav">
+        <button class="btn btn-cobalt" type="submit" id="f-next">Получить бесплатный разбор <span class="arr">→</span></button>
+      </div>
+      <div class="out" id="f-out" hidden></div>
+    </form>
+  </div>
+</section>
+
+<section class="band" id="steps">
+  <div class="wrap">
+    <div class="head">
+      <p data-i18n="stp.k" class="kicker">Этапы работы</p>
+      <h2 data-i18n="stp.h">Сначала цифры, потом реклама</h2>
+    </div>
+    <ol class="steps">
+      <li><h3 data-i18n="s1.h">Диагностика</h3><p data-i18n="s1.p" class="muted">Смотрю текущую рекламу, воронку и цифры. Показываю, где бизнес теряет заявки и деньги.</p></li>
+      <li><h3 data-i18n="s2.h">Цель и план</h3><p data-i18n="s2.p" class="muted">Вместе определяем цель и то, что для неё нужно: бюджет, каналы, сроки.</p></li>
+      <li><h3 data-i18n="s3.h">Запуск и результат в цифрах</h3><p data-i18n="s3.p" class="muted">Настраиваю и веду рекламу. Отвечаю за конкретные показатели.</p></li>
+    </ol>
+    <div class="metrics">
+      <span data-i18n="mt.l" class="label">Показатели, по которым работаю:</span>
+      <span data-i18n="mt1" class="tag">Заявки</span>
+      <span data-i18n="mt2" class="tag">Стоимость лида</span>
+      <span data-i18n="mt3" class="tag">Окупаемость</span>
+    </div>
+  </div>
+</section>
+
+<section class="band soft" id="clients">
+  <div class="wrap">
+    <div class="clients-top">
+      <div class="head">
+        <p data-i18n="cl.k" class="kicker">Мои клиенты</p>
+        <h2 data-i18n="cl.h">Компании, которые доверили мне маркетинг</h2>
+      </div>
+    </div>
+    <div class="logos">
+      <figure><img src="logos/c-saq.jpg" alt="SAQ — доставка" width="640" height="360"></figure>
+      <figure><img src="logos/c-house.jpg" alt="Ремонт под ключ" width="640" height="360"></figure>
+      <figure><img src="logos/c-baris.jpg" alt="BARIS — детские товары" width="640" height="360"></figure>
+      <figure><img src="logos/c-laimun.jpg" alt="Лаймун — семейное кафе" width="640" height="360"></figure>
+      <figure><img src="logos/c-drsmile.jpg" alt="Dr.Smile — стоматология" width="640" height="360"></figure>
+      <figure><img src="logos/c-megaopt.jpg" alt="Mega Arzan опт" width="640" height="360"></figure>
+      <figure><img src="logos/l01.jpg" alt="Qazan Plov" width="640" height="360"></figure>
+      <figure><img src="logos/l02.jpg" alt="BAS Construction" width="640" height="360"></figure>
+      <figure><img src="logos/l03.jpg" alt="Dermalab" width="640" height="360"></figure>
+      <figure><img src="logos/l04.jpg" alt="Oral Dent" width="640" height="360"></figure>
+      <figure><img src="logos/l05.jpg" alt="Mebel Grant" width="640" height="360"></figure>
+      <figure><img src="logos/l06.jpg" alt="PODOclinic" width="640" height="360"></figure>
+      <figure><img src="logos/l07.jpg" alt="ONSS mebel" width="640" height="360"></figure>
+      <figure><img src="logos/l08.jpg" alt="Жиназ House" width="640" height="360"></figure>
+      <figure><img src="logos/l09.jpg" alt="Ponchik" width="640" height="360"></figure>
+      <figure><img src="logos/l10.jpg" alt="Vienna Clinic" width="640" height="360"></figure>
+      <figure><img src="logos/l11.jpg" alt="Gold Dental" width="640" height="360"></figure>
+      <figure><img src="logos/l12.jpg" alt="Persona Grata Group" width="640" height="360"></figure>
+      <figure><img src="logos/l13.jpg" alt="AlmAs" width="640" height="360"></figure>
+      <figure><img src="logos/l14.jpg" alt="Dent House" width="640" height="360"></figure>
+      <figure><img src="logos/l15.jpg" alt="Discovery" width="640" height="360"></figure>
+      <figure><img src="logos/l16.jpg" alt="Мегадент" width="640" height="360"></figure>
+      <figure><img src="logos/l17.jpg" alt="WM Service" width="640" height="360"></figure>
+      <figure><img src="logos/l18.jpg" alt="Mega Arzan" width="640" height="360"></figure>
+      <figure><img src="logos/l19.jpg" alt="StroyComfort" width="640" height="360"></figure>
+      <figure><img src="logos/l20.jpg" alt="EcoMaps" width="640" height="360"></figure>
+      <figure><img src="logos/l21.jpg" alt="Kenat" width="640" height="360"></figure>
+      <figure><img src="logos/l22.jpg" alt="Baiqonir" width="640" height="360"></figure>
+      <figure><img src="logos/l23.jpg" alt="Beauty Smile" width="640" height="360"></figure>
+      <figure><img src="logos/l24.jpg" alt="Baby &amp; Mommy" width="640" height="360"></figure>
+      <figure><img src="logos/l25.jpg" alt="Buton Flowers" width="640" height="360"></figure>
+      <figure><img src="logos/l26.jpg" alt="Smile City" width="640" height="360"></figure>
+      <figure><img src="logos/l27.jpg" alt="А7-Инвест" width="640" height="360"></figure>
+      <figure><img src="logos/l28.jpg" alt="Акмол-Дент" width="640" height="360"></figure>
+      <figure><img src="logos/l29.jpg" alt="Новый дом" width="640" height="360"></figure>
+      <figure><img src="logos/l30.jpg" alt="RS Soft" width="640" height="360"></figure>
+      <figure><img src="logos/l31.jpg" alt="Big Арзан" width="640" height="360"></figure>
+      <figure><img src="logos/l32.jpg" alt="Строй с нами" width="640" height="360"></figure>
+      <figure><img src="logos/l33.jpg" alt="Space Fasade" width="640" height="360"></figure>
+      <figure><img src="logos/l34.jpg" alt="AST Group" width="640" height="360"></figure>
+      <figure><img src="logos/l35.jpg" alt="ABS Consult Group" width="640" height="360"></figure>
+      <figure><img src="logos/l36.jpg" alt="Extra Dental" width="640" height="360"></figure>
+      <figure><img src="logos/l37.jpg" alt="Kinstone" width="640" height="360"></figure>
+      <figure><img src="logos/l38.jpg" alt="Velluto" width="640" height="360"></figure>
+      <figure><img src="logos/l39.jpg" alt="Smagul Dent" width="640" height="360"></figure>
+      <figure><img src="logos/l40.jpg" alt="SS Clinik" width="640" height="360"></figure>
+      <figure><img src="logos/l41.jpg" alt="On-Moms" width="640" height="360"></figure>
+      <figure><img src="logos/l42.jpg" alt="108 Veggie Cafe" width="640" height="360"></figure>
+      <figure><img src="logos/l43.jpg" alt="MUSA Group" width="640" height="360"></figure>
+      <figure><img src="logos/l44.jpg" alt="СМКлиник" width="640" height="360"></figure>
+      <figure><img src="logos/l45.jpg" alt="Aray Dent" width="640" height="360"></figure>
+      <figure><img src="logos/l46.jpg" alt="Seoul Auto" width="640" height="360"></figure>
+      <figure><img src="logos/l47.jpg" alt="Avicenna" width="640" height="360"></figure>
+      <figure><img src="logos/l48.jpg" alt="RTD Energy Service" width="640" height="360"></figure>
+      <figure><img src="logos/l49.jpg" alt="ReStyle Auto" width="640" height="360"></figure>
+      <figure><img src="logos/l50.jpg" alt="Astana Kilem" width="640" height="360"></figure>
+      <figure><img src="logos/l51.jpg" alt="EliteStom" width="640" height="360"></figure>
+      <figure><img src="logos/l52.jpg" alt="Extra Medical" width="640" height="360"></figure>
+      <figure><img src="logos/l53.jpg" alt="New Life Clinic" width="640" height="360"></figure>
+      <figure><img src="logos/l54.jpg" alt="SZ Luxe" width="640" height="360"></figure>
+      <figure><img src="logos/l55.jpg" alt="ItalClean" width="640" height="360"></figure>
+      <figure><img src="logos/l56.jpg" alt="ATB POS" width="640" height="360"></figure>
+      <figure><img src="logos/l57.jpg" alt="Zhan Stroy" width="640" height="360"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <div>
+      <h2 data-i18n="fn.h">Хотите понять, окупится ли реклама в вашем бизнесе?</h2>
+      <p data-i18n="fn.p">Напишите в WhatsApp. Разбор бесплатный.</p>
+    </div>
+    <a data-i18n="btn.wa2" class="btn btn-white" href="https://wa.me/77761600054" target="_blank" rel="noopener">Написать в WhatsApp <span class="arr">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a data-i18n="brand" class="brand" href="#top"><b>Фархад Газитбек</b><small>Маркетинг для МСБ</small></a>
+    <div class="ft-r">
+      <p data-i18n="ft.p">Астана · WhatsApp +7 776 160 00 54</p>
+      <p class="ft-legal"><span data-i18n="ft.who">Газитбек Фархад Алтынсарыұлы</span> · <a href="#privacy" class="pp-link" data-i18n="ft.pp">Политика конфиденциальности</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="pp-overlay" id="privacy" hidden>
+  <div class="pp-panel" role="dialog" aria-modal="true" aria-labelledby="pp-title-ru" tabindex="-1">
+    <button class="pp-close" type="button" id="pp-close" aria-label="Закрыть">✕</button>
+    <div class="pp-body">
+      <div class="pp-block" data-pp="ru">
+        <h2 id="pp-title-ru">Политика конфиденциальности</h2>
+        <p class="pp-date">Дата публикации: 1 октября 2026 года</p>
+        <h3>1. Кто обрабатывает данные</h3><p>Сайт ведёт <b>Газитбек Фархад Алтынсарыұлы</b> (Республика Казахстан, г. Астана). Связь: +7 776 160 00 54 (WhatsApp и звонки).</p><p>Политика составлена с учётом Закона Республики Казахстан от 21 мая 2013 года № 94-V «О персональных данных и их защите».</p><h3>2. Какие данные я получаю</h3><ul><li>Сведения из анкеты: имя, выручка за месяц, город, ниша и продукт, рекламный бюджет.</li><li>Ваш номер телефона и имя в WhatsApp, когда вы мне пишете или звоните.</li></ul><p>Я не прошу и не собираю ИИН, паспортные и банковские данные.</p><h3>3. Как работает анкета</h3><p>Анкета не отправляет данные на сервер и не сохраняет их на сайте. Ответы собираются в текст сообщения на вашем устройстве. Я получаю их, только когда вы сами нажмёте «Отправить» в WhatsApp. До этого момента данные никуда не передаются.</p><p>Калькулятор ROMI считает цифры прямо в браузере и никуда их не отправляет.</p><h3>4. Зачем мне эти данные</h3><ul><li>связаться с вами и провести бесплатный разбор;</li><li>понять, подходим ли мы друг другу, и подготовить предложение;</li><li>при сотрудничестве выполнять работу и общаться по проекту.</li></ul><p>Я не использую данные для рассылок без вашего согласия, не продаю их и не передаю третьим лицам для их рекламы.</p><h3>5. Согласие</h3><p>Отправляя сообщение с анкетой или обращаясь ко мне в WhatsApp, вы соглашаетесь на обработку указанных данных для целей из пункта 4. Согласие можно отозвать в любой момент, написав мне.</p><h3>6. Хранение и защита</h3><p>Переписка хранится в WhatsApp на моём телефоне. Данные хранятся, пока они нужны для целей из пункта 4, но не дольше 3 лет после последнего общения, если вы не попросите удалить их раньше. Доступ к ним есть только у меня.</p><h3>7. Технические данные и сторонние сервисы</h3><ul><li>Выбранный язык сайта запоминается в вашем браузере (localStorage). Это не персональные данные, и я их не вижу.</li><li>Сайт размещён на платформе Claude (Anthropic), шрифты загружаются с Google Fonts. Эти сервисы могут автоматически получать технические данные (IP-адрес, тип браузера) по своим правилам. Я не устанавливал на сайт счётчики аналитики и рекламные пиксели.</li><li>WhatsApp обрабатывает переписку по собственной политике конфиденциальности.</li></ul><h3>8. Ваши права</h3><p>Вы можете узнать, какие ваши данные у меня есть, попросить исправить или удалить их, а также отозвать согласие. Для этого напишите на +7 776 160 00 54.</p><h3>9. Изменения политики</h3><p>Я могу обновлять эту политику. Актуальная версия всегда доступна на этом сайте.</p>
+      </div>
+      <div class="pp-block" data-pp="kk" hidden>
+        <h2 id="pp-title-kk">Құпиялылық саясаты</h2>
+        <p class="pp-date">Жарияланған күні: 2026 жылғы 1 қазан</p>
+        <h3>1. Деректерді кім өңдейді</h3><p>Сайтты <b>Газитбек Фархад Алтынсарыұлы</b> жүргізеді (Қазақстан Республикасы, Астана қ.). Байланыс: +7 776 160 00 54 (WhatsApp және қоңыраулар).</p><p>Саясат Қазақстан Республикасының 2013 жылғы 21 мамырдағы № 94-V «Дербес деректер және оларды қорғау туралы» Заңын ескере отырып жасалған.</p><h3>2. Қандай деректерді аламын</h3><ul><li>Сауалнамадағы мәліметтер: аты, айлық түсім, қала, сала және өнім, жарнама бюджеті.</li><li>Маған жазғанда немесе қоңырау шалғанда WhatsApp-тағы телефон нөміріңіз бен атыңыз.</li></ul><p>ЖСН, төлқұжат және банк деректерін сұрамаймын және жинамаймын.</p><h3>3. Сауалнама қалай жұмыс істейді</h3><p>Сауалнама деректерді серверге жібермейді және сайтта сақтамайды. Жауаптар сіздің құрылғыңызда хабарлама мәтініне жиналады. Мен оларды WhatsApp-та «Жіберу» батырмасын өзіңіз басқанда ғана аламын. Оған дейін деректер ешқайда берілмейді.</p><p>ROMI калькуляторы есептеулерді тікелей браузерде жүргізеді және оларды ешқайда жібермейді.</p><h3>4. Деректер не үшін қажет</h3><ul><li>сізбен байланысып, тегін талдау жүргізу;</li><li>бір-бірімізге сәйкес келетінімізді анықтап, ұсыныс дайындау;</li><li>ынтымақтастық кезінде жұмысты орындау және жоба бойынша байланыста болу.</li></ul><p>Деректерді келісіміңізсіз хабарлама таратуға пайдаланбаймын, сатпаймын және үшінші тұлғаларға олардың жарнамасы үшін бермеймін.</p><h3>5. Келісім</h3><p>Сауалнамамен хабарлама жібере отырып немесе маған WhatsApp арқылы жүгіне отырып, сіз көрсетілген деректердің 4-тармақтағы мақсаттар үшін өңделуіне келісесіз. Маған жазу арқылы келісімді кез келген уақытта кері қайтарып алуға болады.</p><h3>6. Сақтау және қорғау</h3><p>Хат алмасу менің телефонымдағы WhatsApp-та сақталады. Деректер 4-тармақтағы мақсаттарға қажет болғанша сақталады, бірақ соңғы байланыстан кейін 3 жылдан аспайды, егер сіз оларды ертерек жоюды сұрамасаңыз. Деректерге тек мен ғана қол жеткізе аламын.</p><h3>7. Техникалық деректер және үшінші тарап сервистері</h3><ul><li>Таңдалған сайт тілі браузеріңізде (localStorage) сақталады. Бұл дербес дерек емес, мен оны көрмеймін.</li><li>Сайт Claude (Anthropic) платформасында орналасқан, қаріптер Google Fonts-тан жүктеледі. Бұл сервистер өз ережелеріне сәйкес техникалық деректерді (IP-мекенжай, браузер түрі) автоматты түрде алуы мүмкін. Мен сайтқа аналитика есептегіштерін және жарнамалық пиксельдерді орнатқан жоқпын.</li><li>WhatsApp хат алмасуды өзінің құпиялылық саясатына сәйкес өңдейді.</li></ul><h3>8. Сіздің құқықтарыңыз</h3><p>Менде сіздің қандай деректеріңіз бар екенін білуге, оларды түзетуді немесе жоюды сұрауға, сондай-ақ келісімді кері қайтарып алуға құқығыңыз бар. Ол үшін +7 776 160 00 54 нөміріне жазыңыз.</p><h3>9. Саясаттың өзгеруі</h3><p>Мен бұл саясатты жаңартуым мүмкін. Өзекті нұсқасы әрқашан осы сайтта қолжетімді.</p>
+      </div>
+      <div class="pp-block" data-pp="en" hidden>
+        <h2 id="pp-title-en">Privacy policy</h2>
+        <p class="pp-date">Published: 1 October 2026</p>
+        <h3>1. Who processes the data</h3><p>This website is run by <b>Gazitbek Farkhad Altynsaryuly</b> (Astana, Republic of Kazakhstan). Contact: +7 776 160 00 54 (WhatsApp and calls).</p><p>This policy takes into account Law of the Republic of Kazakhstan No. 94-V of 21 May 2013 “On Personal Data and Their Protection”.</p><h3>2. What data I receive</h3><ul><li>Information from the application form: name, monthly revenue, city, niche and product, ad budget.</li><li>Your phone number and WhatsApp name when you message or call me.</li></ul><p>I do not ask for or collect ID numbers, passport details or bank details.</p><h3>3. How the form works</h3><p>The form does not send data to a server or store it on the website. Your answers are assembled into a message on your own device. I receive them only when you tap “Send” in WhatsApp yourself. Until then, the data goes nowhere.</p><p>The ROMI calculator works entirely in your browser and sends nothing anywhere.</p><h3>4. Why I need this data</h3><ul><li>to contact you and run a free audit;</li><li>to see whether we are a good fit and prepare a proposal;</li><li>if we work together, to do the work and communicate about the project.</li></ul><p>I don’t use your data for mailings without your consent, don’t sell it, and don’t pass it to third parties for their advertising.</p><h3>5. Consent</h3><p>By sending the form message or contacting me on WhatsApp, you consent to the processing of this data for the purposes in section 4. You can withdraw consent at any time by messaging me.</p><h3>6. Storage and protection</h3><p>Our conversation is stored in WhatsApp on my phone. Data is kept as long as needed for the purposes in section 4, but no longer than 3 years after our last contact, unless you ask me to delete it sooner. Only I have access to it.</p><h3>7. Technical data and third-party services</h3><ul><li>Your chosen site language is remembered in your browser (localStorage). This is not personal data and I cannot see it.</li><li>The site is hosted on the Claude (Anthropic) platform and fonts load from Google Fonts. These services may automatically receive technical data (IP address, browser type) under their own rules. I have not added analytics counters or advertising pixels to the site.</li><li>WhatsApp processes conversations under its own privacy policy.</li></ul><h3>8. Your rights</h3><p>You can ask what data I hold about you, ask me to correct or delete it, and withdraw your consent. To do so, message +7 776 160 00 54.</p><h3>9. Changes to this policy</h3><p>I may update this policy. The current version is always available on this website.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mbar" aria-label="Быстрая связь">
+  <a class="btn wa" href="https://wa.me/77761600054" target="_blank" rel="noopener">
+    <svg class="wa-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3Z"/></svg>
+    WhatsApp
+  </a>
+  <a data-i18n="mb.audit" class="btn btn-cobalt" href="#apply">Разбор</a>
+</div>
+
+<script>
+(function(){
+  const WA="77761600054";
+  const TR={"kk": {"nav.about": "Мен туралы", "nav.services": "Қызметтер", "nav.calc": "ROMI калькуляторы", "nav.form": "Сауалнама", "nav.steps": "Кезеңдер", "nav.clients": "Клиенттер", "btn.wa": "WhatsApp-қа жазу", "btn.wa2": "WhatsApp-қа жазу <span class=\"arr\">→</span>", "brand": "<b>Фархад Газитбек</b><small>ШОБ үшін маркетинг</small>", "hero.h1": "Мен <em>сөзіммен және цифрлармен</em> жауап беретін маркетинг", "hero.lead": "Мен агенттік емеспін, бәрін өзім жасаймын. Диагностика жүргізіп, цифрлар бойынша нақты жағдайды көрсетемін және өзін-өзі ақтайтын жарнама құрамын.", "hero.cta": "Тегін талдау алу <span class=\"arr\">→</span>", "hero.call": "Қоңырау шалыңыз", "copy": "Көшіру", "st1": "жыл маркетингте", "st2": "ҚР бойынша жоба", "st3": "бизнес саласы", "st4": "жарнама бюджеті", "ticker": "<b>Маған сенеді</b>әртүрлі саладағы компаниялар", "ab.k": "Мен туралы · Фархад Газитбек, Астана", "ab.h": "Бизнесті жарнама кабинетінен ғана емес, ішінен білемін", "ab.big": "Өз компанияларымды өзім іске қосып, басқардым: инвестиция тарттым, ақша санадым, адам жалдадым және нәтижеге жауап бердім.", "ab.pull": "Сондықтан жарнамаға бизнес иесі ретінде қараймын. Ол сатумен және воронкамен бірге жұмыс істеуі керек, бизнестен бөлек өмір сүрмеуі тиіс.", "biz.h": "Мен іске қосқан бизнестер", "biz.s": "Маркетологтың ғана емес, кәсіпкердің тәжірибесі", "b1.m": "Негізін қаладым · 2022", "b1.h": "Маркетинг агенттігі", "b1.p": "Gazitbek Marketing Consult агенттігінің негізін қаладым: ҚР бойынша ШОБ-қа консалтинг. Кәсіпкерлерге кеңес бердім, мамандарды басқардым: трафик-менеджерлер, сайт әзірлеушілер, дизайнерлер, SMM, CRM және т.б.", "b2.m": "Іске қостым · 2023–2024", "b2.h": "Кілтке дейін жөндеу", "b2.p": "Серіктестермен бірге Астанада пәтер жөндеу компаниясын іске қостым: маркетинг пен сату бөліміне жауап бердім.", "b3.m": "Іске қостым · 2024", "b3.h": "Kaspi дүкені", "b3.p": "Kaspi-де өз электроника дүкенімді аштым: талдау, тауар таңдау және сатып алудан бастап сату мен пікір жинауға дейін.", "b4.m": "Тең құрылтайшы · 2024–2025", "b4.h": "SAQ — шығыс тағамдарын жеткізу", "b4.p": "Астанадағы жеткізу қызметінің тең құрылтайшысы. Маркетинг пен сатуға жауап бердім, ал соңғы жарты жыл компанияны толығымен өзім басқардым: ас үй, маркетинг, сату, сатып алу, курьерлер.", "sv.k": "Не істеймін", "sv.h": "Әзірлеуден жарнаманың өзін-өзі ақтауына дейін", "sv.c1": "Әзірлеу", "sv.1a": "Бірегей сауда ұсынысы және оффер", "sv.1b": "Сайт әзірлеу", "sv.1c": "Сату воронкасын құру және рәсімдеу", "sv.c2": "Жарнама", "sv.2a": "Facebook, Instagram, Google, TikTok жарнама кабинеттерін баптау және жүргізу", "sv.2b": "Дәл сіздің аудиторияңызды елең еткізетін жарнама мәтіндері", "sv.c3": "Талдау", "sv.3a": "Маркетинг көрсеткіштерін талдау", "sv.3b": "Басқарушылық есептілікті талдау", "sv.3c": "Клиенттің нақты құнын және жарнаманың өтелуін (ROMI) есептеу", "ca.k": "ROMI калькуляторы", "ca.h": "Сіздің бизнесіңізде жарнама өзін-өзі ақтай ма?", "ca.p": "Өз цифрларыңызды енгізіңіз. Өтінім құны жақсы болса да нәтиже минуста болса, мәселе жарнамада емес, өнім экономикасында немесе сатуда.", "ca.l1": "Жарнама бюджеті, ₸/ай", "ca.l2": "Өтінім құны, ₸", "ca.l3": "Өтінім → сатылым, %", "ca.l4": "Орташа чек, ₸", "ca.l5": "Сатылымнан маржа, %", "ca.l6": "Маркетингке өзге шығындар, ₸", "ca.note": "Мысал ретінде шамамен алынған мәндер көрсетілген.", "ca.r1": "Өтінімдер", "ca.r2": "Сатылымдар", "ca.r3": "Түсім", "ca.r4": "Сатылымнан маржа", "ca.r5": "Маркетингке барлық шығын", "ca.tot": "Айлық нәтиже", "ca.romi": "ROMI маркетингке салынған әр теңгенің қанша пайыз пайда әкелгенін көрсетеді.", "fi.k": "Кіммен жұмыс істеймін", "fi.h": "Барлығын ала бермеймін, және бұл сіздің мүддеңізде", "fi.p": "Егер сіздің салаңызда жарнама өзін ақтамаса, мұны талдау кезінде ашық айтамын.", "fi.yes": "Бірге жұмыс істей аламыз, егер", "fi.y1": "Маркетингтің құндылығын түсінесіз және оны маманға сеніп тапсыруға дайынсыз", "fi.y2": "Өнім бәсекеге қабілетті", "fi.y3": "Сатылымның өсуі маркетологқа ғана емес, бүкіл командаңызға байланысты екенін түсінесіз", "fi.y4": "Қашықтан жұмыс істеу ыңғайлы: кеңседегі кездесудің орнына қоңырау немесе бейнебайланыс", "fi.no": "Жұмыс істемеймін, егер", "fi.n1": "Сала: алкоголь, темекі, құмар ойындар, ипотека, рухани практикалар және сол сияқтылар", "fi.n2": "Күнделікті есеп пен әр қадамды бақылау қажет", "fi.n3": "Сіз үшін маркетолог = «креативщик»", "ap.k": "Тегін талдау", "ap.h": "Бизнесіңізді тегін талдап, ақша қай жерде жоғалып жатқанын көрсетемін", "ap.p1": "Бес қысқа жол, бір минуттан аз. Содан кейін дайын хабарламасы бар WhatsApp ашылады: тек «Жіберу» батырмасын басу қалады.", "ap.p2": "Талдау сізді ешнәрсеге міндеттемейді.", "ap.ph": "WhatsApp және қоңыраулар", "f.name": "Аты", "f.rev": "Айлық түсім", "f.choose": "Таңдаңыз", "rv1": "1 млн ₸-ге дейін", "rv2": "1–3 млн ₸", "rv3": "3–10 млн ₸", "rv4": "10–30 млн ₸", "rv5": "30 млн ₸-ден жоғары", "f.city": "Қала", "f.niche": "Сала және өнім", "f.budget": "Айлық жарнама бюджеті", "bd1": "100 000 ₸-ге дейін", "bd2": "100 000 – 300 000 ₸", "bd3": "300 000 – 1 000 000 ₸", "bd4": "1 000 000 ₸-ден жоғары", "q.money": "Жарнама бюджеті қайдан?", "o.own": "Бизнестің өз қаражаты", "o.debt": "Несие немесе қарыз", "q.sales": "Сатылым бар ма?", "o.syes": "Иә, тұрақты", "o.ssome": "Бар, бірақ аз", "o.sno": "Әлі бастаған жоқпыз", "o.yes": "Иә", "o.hno": "Жоқ немесе сенімді емеспін", "q.terms": "Қашықтан жұмыс форматы ыңғайлы ма: қоңырау мен бейнебайланыс, кешкі уақытта хабарласу?", "o.tyes": "Иә, ыңғайлы", "o.tno": "Кездесулер мен жиі есеп қажет", "back": "← Артқа", "stp.k": "Жұмыс кезеңдері", "stp.h": "Алдымен цифрлар, содан кейін жарнама", "s1.h": "Диагностика", "s1.p": "Ағымдағы жарнаманы, воронканы және цифрларды қараймын. Бизнес өтінімдер мен ақшаны қай жерде жоғалтып жатқанын көрсетемін.", "s2.h": "Мақсат және жоспар", "s2.p": "Бірге мақсатты және оған не қажет екенін анықтаймыз: бюджет, арналар, мерзімдер.", "s3.h": "Іске қосу және цифрлармен нәтиже", "s3.p": "Жарнаманы баптап, жүргіземін. Нақты көрсеткіштерге жауап беремін.", "mt.l": "Мен жұмыс істейтін көрсеткіштер:", "mt1": "Өтінімдер", "mt2": "Лид құны", "mt3": "Өтелу", "cl.k": "Менің клиенттерім", "cl.h": "Маркетингін маған сеніп тапсырған компаниялар", "fn.h": "Бизнесіңізде жарнама өзін-өзі ақтай ма, білгіңіз келе ме?", "fn.p": "WhatsApp-қа жазыңыз. Талдау тегін.", "ft.p": "Астана · WhatsApp +7 776 160 00 54", "mb.audit": "Талдау", "ph.niche": "Мысалы: тапсырыспен жиһаз, орташа чек 400 000 ₸"}, "en": {"nav.about": "About", "nav.services": "Services", "nav.calc": "ROMI calculator", "nav.form": "Application", "nav.steps": "Process", "nav.clients": "Clients", "btn.wa": "Message on WhatsApp", "btn.wa2": "Message on WhatsApp <span class=\"arr\">→</span>", "brand": "<b>Farkhad Gazitbek</b><small>Marketing for SMEs</small>", "hero.h1": "Marketing I stand behind <em>with my word and my numbers</em>", "hero.lead": "I’m not an agency: I do everything myself. I’ll run a diagnostic, show you the real picture in numbers and build advertising that pays for itself.", "hero.cta": "Get a free audit <span class=\"arr\">→</span>", "hero.call": "Call me", "copy": "Copy", "st1": "years in marketing", "st2": "projects across Kazakhstan", "st3": "business niches", "st4": "in ad budgets", "ticker": "<b>Trusted by</b>companies from many niches", "ab.k": "About me · Farkhad Gazitbek, Astana", "ab.h": "I know business from the inside, not just from an ad account", "ab.big": "I’ve launched and run my own companies: raised investment, counted the money, hired people and answered for the results.", "ab.pull": "That’s why I look at advertising like an owner. It has to work together with sales and the funnel, not live separately from the business.", "biz.h": "Businesses I’ve launched", "biz.s": "An entrepreneur’s experience, not just a marketer’s", "b1.m": "Founded · 2022", "b1.h": "Marketing agency", "b1.p": "Founded the Gazitbek Marketing Consult agency: consulting for SMEs across Kazakhstan. Advised entrepreneurs and managed specialists: traffic managers, web developers, designers, SMM, CRM and more.", "b2.m": "Launched · 2023–2024", "b2.h": "Turnkey renovation", "b2.p": "Launched an apartment renovation company in Astana together with partners, responsible for marketing and the sales team.", "b3.m": "Launched · 2024", "b3.h": "Kaspi store", "b3.p": "Launched my own electronics store on Kaspi: from analytics, product selection and purchasing to sales and collecting reviews.", "b4.m": "Co-founder · 2024–2025", "b4.h": "SAQ — Eastern food delivery", "b4.p": "Co-founder of a delivery service in Astana. I handled marketing and sales, and for the last six months ran the company entirely on my own: kitchen, marketing, sales, purchasing, couriers.", "sv.k": "What I do", "sv.h": "From development to advertising that pays off", "sv.c1": "Development", "sv.1a": "Unique selling proposition and offer", "sv.1b": "Website development", "sv.1c": "Building and packaging the sales funnel", "sv.c2": "Advertising", "sv.2a": "Setting up and running ad accounts on Facebook, Instagram, Google, TikTok", "sv.2b": "Ad copy that hooks your specific audience", "sv.c3": "Analytics", "sv.3a": "Marketing metrics analysis", "sv.3b": "Management reporting analysis", "sv.3c": "Calculating true customer cost and advertising return (ROMI)", "ca.k": "ROMI calculator", "ca.h": "Will advertising pay off in your business?", "ca.p": "Enter your own numbers. If the result is negative even with a good cost per lead, the problem isn’t advertising but your product economics or sales.", "ca.l1": "Ad budget, ₸/month", "ca.l2": "Cost per lead, ₸", "ca.l3": "Lead → sale, %", "ca.l4": "Average order value, ₸", "ca.l5": "Margin per sale, %", "ca.l6": "Other marketing costs, ₸", "ca.note": "Sample values are shown for illustration.", "ca.r1": "Leads", "ca.r2": "Sales", "ca.r3": "Revenue", "ca.r4": "Gross margin", "ca.r5": "Total marketing costs", "ca.tot": "Monthly result", "ca.romi": "ROMI shows what percentage of profit each tenge invested in marketing has returned.", "fi.k": "Who I work with", "fi.h": "I don’t take everyone, and that’s in your interest", "fi.p": "If advertising won’t pay off in your niche, I’ll tell you so directly during the audit.", "fi.yes": "We’ll work well together if", "fi.y1": "You understand the value of marketing and are ready to trust it to a specialist", "fi.y2": "Your product is competitive", "fi.y3": "You understand that sales growth depends on your whole team, not just the marketer", "fi.y4": "You’re comfortable working remotely: calls or video instead of office meetings", "fi.no": "I don’t work with you if", "fi.n1": "Your niche: alcohol, tobacco, gambling, mortgages, spiritual practices and the like", "fi.n2": "You need daily reports and control over every step", "fi.n3": "To you, a marketer = “the creative guy”", "ap.k": "Free audit", "ap.h": "I’ll audit your business for free and show you where money is being lost", "ap.p1": "Five short fields, less than a minute. Then WhatsApp opens with a ready message: just tap “Send”.", "ap.p2": "The audit comes with no obligation.", "ap.ph": "WhatsApp and calls", "f.name": "Name", "f.rev": "Monthly revenue", "f.choose": "Select", "rv1": "up to 1M ₸", "rv2": "1–3M ₸", "rv3": "3–10M ₸", "rv4": "10–30M ₸", "rv5": "over 30M ₸", "f.city": "City", "f.niche": "Niche and product", "f.budget": "Monthly ad budget", "bd1": "up to 100,000 ₸", "bd2": "100,000 – 300,000 ₸", "bd3": "300,000 – 1,000,000 ₸", "bd4": "over 1,000,000 ₸", "q.money": "Where does your ad budget come from?", "o.own": "The business’s own money", "o.debt": "A loan or borrowed money", "q.sales": "Are you already making sales?", "o.syes": "Yes, steadily", "o.ssome": "Some, but not many", "o.sno": "Not yet", "o.yes": "Yes", "o.hno": "No or not sure", "q.terms": "Does a remote format work for you: calls and video, contact in the evenings?", "o.tyes": "Yes, that works", "o.tno": "I need meetings and frequent reports", "back": "← Back", "stp.k": "How we work", "stp.h": "Numbers first, then advertising", "s1.h": "Diagnostics", "s1.p": "I review your current ads, funnel and numbers, and show where the business is losing leads and money.", "s2.h": "Goal and plan", "s2.p": "Together we set the goal and what it takes: budget, channels, timelines.", "s3.h": "Launch and results in numbers", "s3.p": "I set up and run the ads, and I’m accountable for specific metrics.", "mt.l": "Metrics I work by:", "mt1": "Leads", "mt2": "Cost per lead", "mt3": "Payback", "cl.k": "My clients", "cl.h": "Companies that trusted me with their marketing", "fn.h": "Want to know whether advertising will pay off in your business?", "fn.p": "Message me on WhatsApp. The audit is free.", "ft.p": "Astana · WhatsApp +7 776 160 00 54", "mb.audit": "Audit", "ph.niche": "E.g. custom furniture, average order 400,000 ₸"}};
+  Object.assign(TR.kk,{"ft.who": "Газитбек Фархад Алтынсарыұлы", "ft.pp": "Құпиялылық саясаты", "f.consent": "Деректерді өңдеуге келісемін және <a href=\"#privacy\" class=\"pp-link\">құпиялылық саясатын</a> қабылдаймын"});Object.assign(TR.en,{"ft.who": "Gazitbek Farkhad Altynsaryuly", "ft.pp": "Privacy policy", "f.consent": "I agree to the processing of my data and accept the <a href=\"#privacy\" class=\"pp-link\">privacy policy</a>"});
+  const T={
+    ru:{titles:["О бизнесе","Бюджет и продажи","Формат работы"],step:n=>"Шаг "+n+" из 3",next:"Далее",submit:"Получить бесплатный разбор",
+      err1:"Заполните имя, выручку, нишу и бюджет.",err3:"Подтвердите согласие с политикой конфиденциальности.",err2:"Ответьте на оба вопроса.",
+      
+      stopT:"Похоже, сейчас мы не подходим друг другу",stopN:"Если ситуация изменится, возвращайтесь: буду рад посмотреть ваш проект.",
+      okT:"Готово, сообщение собрано",okP:"Нажмите кнопку: откроется WhatsApp с готовым сообщением. Если не открылся, напишите на номер",openWA:"Открыть WhatsApp →",
+      cOk:"Реклама окупается. На разборе посмотрим, как снизить стоимость заявки и поднять конверсию.",cBe:n=>"Для выхода в ноль нужно около "+n+" продаж в месяц. Стоит поработать над чеком, маржой или продажами.",cNo:"Укажите чек и маржу, чтобы посчитать окупаемость.",
+      copied:"Скопировано",copy:"Скопировать",selected:"Номер выделен",
+      m:{hi:"Здравствуйте, Фархад! Хочу бесплатный разбор бизнеса.",name:"Имя",rev:"Выручка за месяц",city:"Город",niche:"Ниша",budget:"Рекламный бюджет",own:"свои деньги",debt:"кредит или в долг",sales:"Продажи",s:{yes:"идут стабильно",some:"есть, но мало",no:"ещё не начинали"}}},
+    kk:{titles:["Бизнес туралы","Бюджет және сатылым","Жұмыс форматы"],step:n=>n+"-қадам, барлығы 3",next:"Әрі қарай",submit:"Тегін талдау алу",
+      err1:"Атыңызды, түсімді, саланы және бюджетті толтырыңыз.",err3:"Құпиялылық саясатымен келісіміңізді растаңыз.",err2:"Екі сұраққа да жауап беріңіз.",
+      
+      stopT:"Қазір бір-бірімізге сәйкес келмейтін сияқтымыз",stopN:"Жағдай өзгерсе, қайта оралыңыз: жобаңызды қуана қарап шығамын.",
+      okT:"Дайын, хабарлама жиналды",okP:"Батырманы басыңыз: дайын хабарламасы бар WhatsApp ашылады. Ашылмаса, мына нөмірге жазыңыз",openWA:"WhatsApp ашу →",
+      cOk:"Жарнама өзін-өзі ақтайды. Талдау кезінде өтінім құнын қалай төмендетуге және конверсияны қалай көтеруге болатынын қарастырамыз.",cBe:n=>"Шығынсыз деңгейге шығу үшін айына шамамен "+n+" сатылым керек. Чекке, маржаға немесе сатуға көңіл бөлген жөн.",cNo:"Өтелуді есептеу үшін чек пен маржаны көрсетіңіз.",
+      copied:"Көшірілді",copy:"Көшіру",selected:"Нөмір белгіленді",
+      m:{hi:"Сәлеметсіз бе, Фархад! Бизнесіме тегін талдау алғым келеді.",name:"Аты",rev:"Айлық түсім",city:"Қала",niche:"Сала",budget:"Жарнама бюджеті",own:"өз қаражаты",debt:"несие немесе қарыз",sales:"Сатылым",s:{yes:"тұрақты",some:"бар, бірақ аз",no:"әлі басталған жоқ"}}},
+    en:{titles:["About the business","Budget and sales","Working format"],step:n=>"Step "+n+" of 3",next:"Next",submit:"Get a free audit",
+      err1:"Please fill in your name, revenue, niche and budget.",err3:"Please confirm that you accept the privacy policy.",err2:"Please answer both questions.",
+      
+      stopT:"It looks like we’re not a good fit right now",stopN:"If things change, come back: I’ll be glad to look at your project.",
+      okT:"Done, your message is ready",okP:"Tap the button: WhatsApp will open with a ready message. If it doesn’t open, message",openWA:"Open WhatsApp →",
+      cOk:"Your advertising pays off. In the audit we’ll look at lowering cost per lead and raising conversion.",cBe:n=>"You need about "+n+" sales a month to break even. Work on order value, margin or sales.",cNo:"Enter order value and margin to calculate payback.",
+      copied:"Copied",copy:"Copy",selected:"Number selected",
+      m:{hi:"Hello Farkhad! I’d like a free business audit.",name:"Name",rev:"Monthly revenue",city:"City",niche:"Niche",budget:"Ad budget",own:"own funds",debt:"loan or borrowed",sales:"Sales",s:{yes:"steady",some:"some, but few",no:"not started yet"}}}
+  };
+  let lang="ru";
+  const fmt=n=>Math.round(n).toLocaleString("ru-RU").replace(/[  ,]/g," ");
+  const $=id=>document.getElementById(id);
+  const reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* исходные русские тексты */
+  const ruHTML=new Map(),ruPH=new Map();
+  document.querySelectorAll("[data-i18n]").forEach(el=>ruHTML.set(el,el.innerHTML));
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>ruPH.set(el,el.getAttribute("placeholder")));
+
+  /* лента логотипов */
+  const track=document.querySelector(".ticker-track");
+  if(track&&!reduce){
+    const n=track.children.length;
+    track.innerHTML+=track.innerHTML;
+    [...track.children].forEach((im,i)=>{if(i>=n){im.alt="";im.setAttribute("aria-hidden","true");}});
+  }
+
+  /* счётчики */
+  if(!reduce){
+    document.querySelectorAll("[data-count]").forEach(el=>{
+      const end=+el.dataset.count,pre=el.dataset.prefix||"",suf=el.dataset.suffix||"",t0=performance.now(),d=1200;
+      const tick=t=>{const k=Math.min(1,(t-t0)/d),e=1-Math.pow(1-k,3);el.textContent=pre+fmt(end*e)+suf;if(k<1)requestAnimationFrame(tick);};
+      requestAnimationFrame(tick);
+    });
+  }
+
+  /* калькулятор */
+  ["c-budget","c-cpl","c-conv","c-check","c-margin","c-fee"].forEach(id=>$(id).addEventListener("input",calc));
+  function calc(){
+    const L=T[lang];
+    const v=k=>Math.max(0,parseFloat($(k).value)||0);
+    const budget=v("c-budget"),cpl=v("c-cpl")||1,conv=v("c-conv")/100,check=v("c-check"),margin=v("c-margin")/100,fee=v("c-fee");
+    const leads=budget/cpl,sales=leads*conv,rev=sales*check,gross=rev*margin,cost=budget+fee,net=gross-cost;
+    $("r-leads").textContent=fmt(leads);
+    $("r-sales").textContent=fmt(sales);
+    $("r-rev").textContent=fmt(rev)+" ₸";
+    $("r-gross").textContent=fmt(gross)+" ₸";
+    $("r-cost").textContent="−"+fmt(cost)+" ₸";
+    $("r-romi").textContent=cost>0?Math.round(net/cost*100)+"%":"—";
+    $("r-net").textContent=(net>=0?"+":"−")+fmt(Math.abs(net))+" ₸";
+    $("r-verdict").className="verdict "+(net>=0?"plus":"minus");
+    const be=margin*check>0?cost/(margin*check):Infinity;
+    $("r-text").textContent=net>=0?L.cOk:(isFinite(be)?L.cBe(fmt(Math.ceil(be))):L.cNo);
+  }
+
+  /* анкета */
+  const err=$("f-err"),out=$("f-out");
+  function show(){
+    const L=T[lang];
+    $("f-next").innerHTML=L.submit+' <span class="arr">→</span>';
+    err.hidden=true;out.hidden=true;
+  }
+  $("form").addEventListener("submit",e=>{
+    e.preventDefault();
+    const L=T[lang];
+    let msgErr="";
+    if(!$("f-name").value.trim()||!$("f-revenue").value||!$("f-niche").value.trim()||!$("f-budget").value)msgErr=L.err1;
+    else if(!$("f-consent").checked)msgErr=L.err3;
+    if(msgErr){err.textContent=msgErr;err.hidden=false;out.hidden=true;return;}
+    err.hidden=true;
+    const sel=id=>{const o=$(id).selectedOptions[0];return o?o.textContent:"";};
+    const name=$("f-name").value.trim(),revenue=sel("f-revenue"),city=$("f-city").value.trim(),niche=$("f-niche").value.trim(),budget=sel("f-budget");
+    const M=L.m;
+    const msg=M.hi+"\n"+
+      M.name+": "+name+"\n"+M.rev+": "+revenue+"\n"+(city?M.city+": "+city+"\n":"")+
+      M.niche+": "+niche+"\n"+
+      M.budget+": "+budget;
+    out.hidden=false;
+    out.className="out ok";
+    out.innerHTML="<strong>"+L.okT+"</strong><p>"+L.okP+" <b>+7 776 160 00 54</b>.</p>";
+    const a=document.createElement("a");
+    a.className="btn btn-cobalt";a.href="https://wa.me/"+WA+"?text="+encodeURIComponent(msg);a.target="_blank";a.rel="noopener";
+    a.textContent=L.openWA;
+    out.appendChild(a);
+  });
+
+  /* копирование номера */
+  $("copy").addEventListener("click",()=>{
+    const b=$("copy"),L=T[lang];
+    const done=()=>{b.textContent=L.copied;setTimeout(()=>b.textContent=T[lang].copy,1800)};
+    function sel(){const r=document.createRange();r.selectNodeContents($("phone"));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent=L.selected}
+    try{navigator.clipboard.writeText("+77761600054").then(done).catch(sel);}catch(_){sel();}
+  });
+
+  /* всплывающее меню */
+  const burger=$("burger"),mmenu=$("mmenu");
+  const setMenu=open=>{burger.setAttribute("aria-expanded",String(open));mmenu.hidden=!open;};
+  burger.addEventListener("click",e=>{e.stopPropagation();setMenu(mmenu.hidden);});
+  mmenu.addEventListener("click",e=>{if(e.target.closest("a"))setMenu(false);});
+  document.addEventListener("click",e=>{if(!mmenu.hidden&&!mmenu.contains(e.target))setMenu(false);});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!mmenu.hidden){setMenu(false);burger.focus();}});
+  window.addEventListener("scroll",()=>{if(!mmenu.hidden)setMenu(false);},{passive:true});
+
+  /* политика конфиденциальности */
+  const pp=$("privacy"),ppPanel=pp.querySelector(".pp-panel");
+  let ppReturn=null;
+  function openPP(){
+    ppReturn=document.activeElement;
+    pp.querySelectorAll(".pp-block").forEach(b=>b.hidden=b.dataset.pp!==lang);
+    ppPanel.setAttribute("aria-labelledby","pp-title-"+lang);
+    pp.hidden=false;document.body.classList.add("pp-open");ppPanel.scrollTop=0;ppPanel.focus();
+  }
+  function closePP(){pp.hidden=true;document.body.classList.remove("pp-open");if(ppReturn&&ppReturn.focus)ppReturn.focus();}
+  document.addEventListener("click",e=>{const a=e.target.closest(".pp-link");if(a){e.preventDefault();openPP();}});
+  $("pp-close").addEventListener("click",closePP);
+  pp.addEventListener("click",e=>{if(e.target===pp)closePP();});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!pp.hidden)closePP();});
+
+  /* переключение языка */
+  function setLang(l){
+    if(!T[l])l="ru";
+    lang=l;
+    document.documentElement.lang=l==="kk"?"kk":l;
+    ruHTML.forEach((html,el)=>{el.innerHTML=l==="ru"?html:(TR[l][el.dataset.i18n]??html);});
+    ruPH.forEach((ph,el)=>{el.setAttribute("placeholder",l==="ru"?ph:(TR[l][el.dataset.i18nPh]??ph));});
+    document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lang===l)));
+    calc();show();
+    try{localStorage.setItem("lang",l);}catch(_){}
+  }
+  document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
+  let saved="ru";
+  try{saved=localStorage.getItem("lang")||"ru";}catch(_){}
+  setLang(saved);
+  if(location.hash==="#privacy")openPP();
+})();
+</script>
+
+</body></html>
