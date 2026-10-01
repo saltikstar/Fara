@@ -2864,10 +2864,10 @@
                 lang = l;
                 document.documentElement.lang = l === "kk" ? "kk" : l;
                 ruHTML.forEach((html, el) => {
-                    el.innerHTML = l === "ru" ? html : (TR[l][el.dataset.i18n] ? ? html);
+                    el.innerHTML = l === "ru" ? html : (TR[l][el.dataset.i18n] ?? html);
                 });
                 ruPH.forEach((ph, el) => {
-                    el.setAttribute("placeholder", l === "ru" ? ph : (TR[l][el.dataset.i18nPh] ? ? ph));
+                    el.setAttribute("placeholder", l === "ru" ? ph : (TR[l][el.dataset.i18nPh] ?? ph));
                 });
                 document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === l)));
                 calc();
