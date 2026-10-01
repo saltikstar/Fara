@@ -1,4 +1,42 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+            if (document.scripts[j].src === r) { return; }
+        }
+        k=e.createElement(t),
+        a=e.getElementsByTagName(t)[0],
+        k.async=1,
+        k.src=r,
+        a.parentNode.insertBefore(k,a)
+    })(window, document,'script',
+       'https://mc.yandex.ru/metrika/tag.js?id=113265995',
+       'ym');
+
+    ym(113265995, 'init', {
+        ssr: true,
+        webvisor: true,
+        clickmap: true,
+        ecommerce: "dataLayer",
+        referrer: document.referrer,
+        url: location.href,
+        accurateTrackBounce: true,
+        trackLinks: true
+    });
+</script>
+
+<noscript>
+    <div>
+        <img src="https://mc.yandex.ru/watch/113265995"
+             style="position:absolute; left:-9999px;"
+             alt="">
+    </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+</head><body>
 <title>Сайт (Copy)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,13 +82,13 @@ p{margin:0}
 .head{display:grid;gap:16px;max-width:760px;margin-bottom:48px}
 .head p{font-size:1.1rem}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font:600 1rem var(--f-sans);padding:15px 26px;border-radius:0;border:0;cursor:pointer;text-decoration:none;transition:background .15s ease,color .15s ease}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font:600 1rem var(--f-sans);padding:15px 26px;border-radius:0;border:0;cursor:pointer;text-decoration:none;transition:background-color .2s ease,border-color .2s ease}
 .btn-cobalt{background:var(--cobalt);color:var(--white)}
-.btn-cobalt:hover{background:var(--cobalt-dk)}
+.btn.btn-cobalt:hover{background:#3D67FF;color:var(--white)}
 .btn-white{background:var(--white);color:var(--navy)}
 .btn-white:hover{background:#E6ECFF}
 .btn-line{background:transparent;color:var(--ink);border:1.5px solid #B8C0C6}
-.btn-line:hover{border-color:var(--ink)}
+.btn-line:hover{background:rgba(255,255,255,.08);color:var(--ink);border-color:var(--ink)}
 .btn .arr{display:inline-block;transition:transform .15s ease}
 .btn:hover .arr{transform:translateX(3px)}
 :focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}
@@ -72,6 +110,7 @@ p{margin:0}
 .top nav a{color:var(--ink);text-decoration:none;font-size:.92rem;white-space:nowrap}
 .top nav a:hover{color:var(--cobalt)}
 .top nav .btn{padding:11px 18px;font-size:.9rem;color:var(--white)}
+.top nav a.btn.btn-cobalt:hover{color:var(--white)}
 @media (max-width:1140px){.top nav a:not(.btn){display:none}}
 @media (max-width:760px){.top nav{display:none}}
 
@@ -248,6 +287,7 @@ footer p{font-size:.92rem}
   .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:var(--white);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(5,28,44,.08)}
   .mbar .btn{flex:1;padding:14px 12px}
   .mbar .wa{background:var(--wa);color:var(--white);flex:2}
+  .mbar .wa:hover{background:#2ABA45;color:var(--white)}
   body{padding-bottom:78px}
   html{scroll-padding-bottom:90px}
 }
@@ -288,6 +328,9 @@ footer p{font-size:.92rem}
 .pp-close{position:sticky;top:0;float:right;margin:12px 12px 0 0;width:36px;height:36px;border:1px solid var(--line);background:var(--white);cursor:pointer;font-size:1rem;z-index:1}
 .pp-close:hover{border-color:var(--ink)}
 body.pp-open{overflow:hidden}
+a.tel{color:inherit;text-decoration:none;border-bottom:1px dashed currentColor}
+a.tel:hover{border-bottom-style:solid}
+.phone a.tel{border-bottom-color:rgba(255,255,255,.4)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 
@@ -336,7 +379,7 @@ body.pp-open{overflow:hidden}
         <a data-i18n="hero.cta" class="btn btn-white" href="#apply">Получить бесплатный разбор <span class="arr">→</span></a>
         <div class="phone">
           <span data-i18n="hero.call">Позвоните</span>
-          <div><code id="phone">+7 776 160 00 54</code><button data-i18n="copy" class="copy" type="button" id="copy">Скопировать</button></div>
+          <div><a class="tel" href="tel:+77761600054"><code id="phone">+7 776 160 00 54</code></a><button data-i18n="copy" class="copy" type="button" id="copy">Скопировать</button></div>
         </div>
       </div>
     </div>
@@ -467,12 +510,12 @@ body.pp-open{overflow:hidden}
     </div>
     <div class="calc">
       <div class="fields">
-        <div class="field"><label data-i18n="ca.l1" for="c-budget">Рекламный бюджет, ₸/мес</label><input id="c-budget" type="number" min="0" step="10000" value="300000"></div>
+        <div class="field"><label data-i18n="ca.l1" for="c-budget">Рекламный бюджет, ₸/мес</label><input id="c-budget" type="number" min="0" step="10000" value="500000"></div>
         <div class="field"><label data-i18n="ca.l2" for="c-cpl">Стоимость заявки, ₸</label><input id="c-cpl" type="number" min="1" step="100" value="1500"></div>
         <div class="field"><label data-i18n="ca.l3" for="c-conv">Заявка → продажа, %</label><input id="c-conv" type="number" min="0" max="100" step="1" value="15"></div>
-        <div class="field"><label data-i18n="ca.l4" for="c-check">Средний чек, ₸</label><input id="c-check" type="number" min="0" step="1000" value="60000"></div>
+        <div class="field"><label data-i18n="ca.l4" for="c-check">Средний чек, ₸</label><input id="c-check" type="number" min="0" step="1000" value="70000"></div>
         <div class="field"><label data-i18n="ca.l5" for="c-margin">Маржа с продажи, %</label><input id="c-margin" type="number" min="0" max="100" step="1" value="40"></div>
-        <div class="field"><label data-i18n="ca.l6" for="c-fee">Прочие расходы на маркетинг, ₸</label><input id="c-fee" type="number" min="0" step="10000" value="100000"></div>
+        <div class="field"><label data-i18n="ca.l6" for="c-fee">Прочие расходы на маркетинг, ₸</label><input id="c-fee" type="number" min="0" step="10000" value="200000"></div>
         <p data-i18n="ca.note" class="note">Стоят примерные значения для иллюстрации.</p>
       </div>
       <div class="result" aria-live="polite">
@@ -510,7 +553,7 @@ body.pp-open{overflow:hidden}
         <h3 data-i18n="fi.no">Не работаю, если</h3>
         <ul>
           <li data-i18n="fi.n1">Ниша: алкоголь, табак, азартные игры, ипотека, духовные практики и подобное</li>
-          <li data-i18n="fi.n2">Нужен ежедневный отчёт и контроль каждого шага</li>
+          <li data-i18n="fi.n2">Нужен микроменеджмент (ежедневные отчёты и согласование каждого шага)</li>
           <li data-i18n="fi.n3">Маркетолог для вас = «креативщик»</li>
         </ul>
       </div>
@@ -525,7 +568,7 @@ body.pp-open{overflow:hidden}
       <h2 data-i18n="ap.h">Разберу ваш бизнес бесплатно и покажу, где теряются деньги</h2>
       <p data-i18n="ap.p1" class="muted">Пять коротких полей, меньше минуты. Затем откроется WhatsApp с готовым сообщением: останется нажать «Отправить».</p>
       <p data-i18n="ap.p2" class="muted">Разбор ни к чему не обязывает.</p>
-      <p class="ph">+7 776 160 00 54</p>
+      <p class="ph"><a class="tel" href="tel:+77761600054">+7 776 160 00 54</a></p>
       <p data-i18n="ap.ph" class="muted" style="margin-top:-12px">WhatsApp и звонки</p>
     </div>
     <form id="form" novalidate>
@@ -576,12 +619,6 @@ body.pp-open{overflow:hidden}
       <li><h3 data-i18n="s2.h">Цель и план</h3><p data-i18n="s2.p" class="muted">Вместе определяем цель и то, что для неё нужно: бюджет, каналы, сроки.</p></li>
       <li><h3 data-i18n="s3.h">Запуск и результат в цифрах</h3><p data-i18n="s3.p" class="muted">Настраиваю и веду рекламу. Отвечаю за конкретные показатели.</p></li>
     </ol>
-    <div class="metrics">
-      <span data-i18n="mt.l" class="label">Показатели, по которым работаю:</span>
-      <span data-i18n="mt1" class="tag">Заявки</span>
-      <span data-i18n="mt2" class="tag">Стоимость лида</span>
-      <span data-i18n="mt3" class="tag">Окупаемость</span>
-    </div>
   </div>
 </section>
 
@@ -675,7 +712,7 @@ body.pp-open{overflow:hidden}
   <div class="wrap">
     <a data-i18n="brand" class="brand" href="#top"><b>Фархад Газитбек</b><small>Маркетинг для МСБ</small></a>
     <div class="ft-r">
-      <p data-i18n="ft.p">Астана · WhatsApp +7 776 160 00 54</p>
+      <p data-i18n="ft.p">Астана · <a class="tel" href="tel:+77761600054">+7 776 160 00 54</a></p>
       <p class="ft-legal"><span data-i18n="ft.who">Газитбек Фархад Алтынсарыұлы</span> · <a href="#privacy" class="pp-link" data-i18n="ft.pp">Политика конфиденциальности</a></p>
     </div>
   </div>
@@ -715,7 +752,7 @@ body.pp-open{overflow:hidden}
 <script>
 (function(){
   const WA="77761600054";
-  const TR={"kk": {"nav.about": "Мен туралы", "nav.services": "Қызметтер", "nav.calc": "ROMI калькуляторы", "nav.form": "Сауалнама", "nav.steps": "Кезеңдер", "nav.clients": "Клиенттер", "btn.wa": "WhatsApp-қа жазу", "btn.wa2": "WhatsApp-қа жазу <span class=\"arr\">→</span>", "brand": "<b>Фархад Газитбек</b><small>ШОБ үшін маркетинг</small>", "hero.h1": "Мен <em>сөзіммен және цифрлармен</em> жауап беретін маркетинг", "hero.lead": "Мен агенттік емеспін, бәрін өзім жасаймын. Диагностика жүргізіп, цифрлар бойынша нақты жағдайды көрсетемін және өзін-өзі ақтайтын жарнама құрамын.", "hero.cta": "Тегін талдау алу <span class=\"arr\">→</span>", "hero.call": "Қоңырау шалыңыз", "copy": "Көшіру", "st1": "жыл маркетингте", "st2": "ҚР бойынша жоба", "st3": "бизнес саласы", "st4": "жарнама бюджеті", "ticker": "<b>Маған сенеді</b>әртүрлі саладағы компаниялар", "ab.k": "Мен туралы · Фархад Газитбек, Астана", "ab.h": "Бизнесті жарнама кабинетінен ғана емес, ішінен білемін", "ab.big": "Өз компанияларымды өзім іске қосып, басқардым: инвестиция тарттым, ақша санадым, адам жалдадым және нәтижеге жауап бердім.", "ab.pull": "Сондықтан жарнамаға бизнес иесі ретінде қараймын. Ол сатумен және воронкамен бірге жұмыс істеуі керек, бизнестен бөлек өмір сүрмеуі тиіс.", "biz.h": "Мен іске қосқан бизнестер", "biz.s": "Маркетологтың ғана емес, кәсіпкердің тәжірибесі", "b1.m": "Негізін қаладым · 2022", "b1.h": "Маркетинг агенттігі", "b1.p": "Gazitbek Marketing Consult агенттігінің негізін қаладым: ҚР бойынша ШОБ-қа консалтинг. Кәсіпкерлерге кеңес бердім, мамандарды басқардым: трафик-менеджерлер, сайт әзірлеушілер, дизайнерлер, SMM, CRM және т.б.", "b2.m": "Іске қостым · 2023–2024", "b2.h": "Кілтке дейін жөндеу", "b2.p": "Серіктестермен бірге Астанада пәтер жөндеу компаниясын іске қостым: маркетинг пен сату бөліміне жауап бердім.", "b3.m": "Іске қостым · 2024", "b3.h": "Kaspi дүкені", "b3.p": "Kaspi-де өз электроника дүкенімді аштым: талдау, тауар таңдау және сатып алудан бастап сату мен пікір жинауға дейін.", "b4.m": "Тең құрылтайшы · 2024–2025", "b4.h": "SAQ — шығыс тағамдарын жеткізу", "b4.p": "Астанадағы жеткізу қызметінің тең құрылтайшысы. Маркетинг пен сатуға жауап бердім, ал соңғы жарты жыл компанияны толығымен өзім басқардым: ас үй, маркетинг, сату, сатып алу, курьерлер.", "sv.k": "Не істеймін", "sv.h": "Әзірлеуден жарнаманың өзін-өзі ақтауына дейін", "sv.c1": "Әзірлеу", "sv.1a": "Бірегей сауда ұсынысы және оффер", "sv.1b": "Сайт әзірлеу", "sv.1c": "Сату воронкасын құру және рәсімдеу", "sv.c2": "Жарнама", "sv.2a": "Facebook, Instagram, Google, TikTok жарнама кабинеттерін баптау және жүргізу", "sv.2b": "Дәл сіздің аудиторияңызды елең еткізетін жарнама мәтіндері", "sv.c3": "Талдау", "sv.3a": "Маркетинг көрсеткіштерін талдау", "sv.3b": "Басқарушылық есептілікті талдау", "sv.3c": "Клиенттің нақты құнын және жарнаманың өтелуін (ROMI) есептеу", "ca.k": "ROMI калькуляторы", "ca.h": "Сіздің бизнесіңізде жарнама өзін-өзі ақтай ма?", "ca.p": "Өз цифрларыңызды енгізіңіз. Өтінім құны жақсы болса да нәтиже минуста болса, мәселе жарнамада емес, өнім экономикасында немесе сатуда.", "ca.l1": "Жарнама бюджеті, ₸/ай", "ca.l2": "Өтінім құны, ₸", "ca.l3": "Өтінім → сатылым, %", "ca.l4": "Орташа чек, ₸", "ca.l5": "Сатылымнан маржа, %", "ca.l6": "Маркетингке өзге шығындар, ₸", "ca.note": "Мысал ретінде шамамен алынған мәндер көрсетілген.", "ca.r1": "Өтінімдер", "ca.r2": "Сатылымдар", "ca.r3": "Түсім", "ca.r4": "Сатылымнан маржа", "ca.r5": "Маркетингке барлық шығын", "ca.tot": "Айлық нәтиже", "ca.romi": "ROMI маркетингке салынған әр теңгенің қанша пайыз пайда әкелгенін көрсетеді.", "fi.k": "Кіммен жұмыс істеймін", "fi.h": "Барлығын ала бермеймін, және бұл сіздің мүддеңізде", "fi.p": "Егер сіздің салаңызда жарнама өзін ақтамаса, мұны талдау кезінде ашық айтамын.", "fi.yes": "Бірге жұмыс істей аламыз, егер", "fi.y1": "Маркетингтің құндылығын түсінесіз және оны маманға сеніп тапсыруға дайынсыз", "fi.y2": "Өнім бәсекеге қабілетті", "fi.y3": "Сатылымның өсуі маркетологқа ғана емес, бүкіл командаңызға байланысты екенін түсінесіз", "fi.y4": "Қашықтан жұмыс істеу ыңғайлы: кеңседегі кездесудің орнына қоңырау немесе бейнебайланыс", "fi.no": "Жұмыс істемеймін, егер", "fi.n1": "Сала: алкоголь, темекі, құмар ойындар, ипотека, рухани практикалар және сол сияқтылар", "fi.n2": "Күнделікті есеп пен әр қадамды бақылау қажет", "fi.n3": "Сіз үшін маркетолог = «креативщик»", "ap.k": "Тегін талдау", "ap.h": "Бизнесіңізді тегін талдап, ақша қай жерде жоғалып жатқанын көрсетемін", "ap.p1": "Бес қысқа жол, бір минуттан аз. Содан кейін дайын хабарламасы бар WhatsApp ашылады: тек «Жіберу» батырмасын басу қалады.", "ap.p2": "Талдау сізді ешнәрсеге міндеттемейді.", "ap.ph": "WhatsApp және қоңыраулар", "f.name": "Аты", "f.rev": "Айлық түсім", "f.choose": "Таңдаңыз", "rv1": "1 млн ₸-ге дейін", "rv2": "1–3 млн ₸", "rv3": "3–10 млн ₸", "rv4": "10–30 млн ₸", "rv5": "30 млн ₸-ден жоғары", "f.city": "Қала", "f.niche": "Сала және өнім", "f.budget": "Айлық жарнама бюджеті", "bd1": "100 000 ₸-ге дейін", "bd2": "100 000 – 300 000 ₸", "bd3": "300 000 – 1 000 000 ₸", "bd4": "1 000 000 ₸-ден жоғары", "q.money": "Жарнама бюджеті қайдан?", "o.own": "Бизнестің өз қаражаты", "o.debt": "Несие немесе қарыз", "q.sales": "Сатылым бар ма?", "o.syes": "Иә, тұрақты", "o.ssome": "Бар, бірақ аз", "o.sno": "Әлі бастаған жоқпыз", "o.yes": "Иә", "o.hno": "Жоқ немесе сенімді емеспін", "q.terms": "Қашықтан жұмыс форматы ыңғайлы ма: қоңырау мен бейнебайланыс, кешкі уақытта хабарласу?", "o.tyes": "Иә, ыңғайлы", "o.tno": "Кездесулер мен жиі есеп қажет", "back": "← Артқа", "stp.k": "Жұмыс кезеңдері", "stp.h": "Алдымен цифрлар, содан кейін жарнама", "s1.h": "Диагностика", "s1.p": "Ағымдағы жарнаманы, воронканы және цифрларды қараймын. Бизнес өтінімдер мен ақшаны қай жерде жоғалтып жатқанын көрсетемін.", "s2.h": "Мақсат және жоспар", "s2.p": "Бірге мақсатты және оған не қажет екенін анықтаймыз: бюджет, арналар, мерзімдер.", "s3.h": "Іске қосу және цифрлармен нәтиже", "s3.p": "Жарнаманы баптап, жүргіземін. Нақты көрсеткіштерге жауап беремін.", "mt.l": "Мен жұмыс істейтін көрсеткіштер:", "mt1": "Өтінімдер", "mt2": "Лид құны", "mt3": "Өтелу", "cl.k": "Менің клиенттерім", "cl.h": "Маркетингін маған сеніп тапсырған компаниялар", "fn.h": "Бизнесіңізде жарнама өзін-өзі ақтай ма, білгіңіз келе ме?", "fn.p": "WhatsApp-қа жазыңыз. Талдау тегін.", "ft.p": "Астана · WhatsApp +7 776 160 00 54", "mb.audit": "Талдау", "ph.niche": "Мысалы: тапсырыспен жиһаз, орташа чек 400 000 ₸"}, "en": {"nav.about": "About", "nav.services": "Services", "nav.calc": "ROMI calculator", "nav.form": "Application", "nav.steps": "Process", "nav.clients": "Clients", "btn.wa": "Message on WhatsApp", "btn.wa2": "Message on WhatsApp <span class=\"arr\">→</span>", "brand": "<b>Farkhad Gazitbek</b><small>Marketing for SMEs</small>", "hero.h1": "Marketing I stand behind <em>with my word and my numbers</em>", "hero.lead": "I’m not an agency: I do everything myself. I’ll run a diagnostic, show you the real picture in numbers and build advertising that pays for itself.", "hero.cta": "Get a free audit <span class=\"arr\">→</span>", "hero.call": "Call me", "copy": "Copy", "st1": "years in marketing", "st2": "projects across Kazakhstan", "st3": "business niches", "st4": "in ad budgets", "ticker": "<b>Trusted by</b>companies from many niches", "ab.k": "About me · Farkhad Gazitbek, Astana", "ab.h": "I know business from the inside, not just from an ad account", "ab.big": "I’ve launched and run my own companies: raised investment, counted the money, hired people and answered for the results.", "ab.pull": "That’s why I look at advertising like an owner. It has to work together with sales and the funnel, not live separately from the business.", "biz.h": "Businesses I’ve launched", "biz.s": "An entrepreneur’s experience, not just a marketer’s", "b1.m": "Founded · 2022", "b1.h": "Marketing agency", "b1.p": "Founded the Gazitbek Marketing Consult agency: consulting for SMEs across Kazakhstan. Advised entrepreneurs and managed specialists: traffic managers, web developers, designers, SMM, CRM and more.", "b2.m": "Launched · 2023–2024", "b2.h": "Turnkey renovation", "b2.p": "Launched an apartment renovation company in Astana together with partners, responsible for marketing and the sales team.", "b3.m": "Launched · 2024", "b3.h": "Kaspi store", "b3.p": "Launched my own electronics store on Kaspi: from analytics, product selection and purchasing to sales and collecting reviews.", "b4.m": "Co-founder · 2024–2025", "b4.h": "SAQ — Eastern food delivery", "b4.p": "Co-founder of a delivery service in Astana. I handled marketing and sales, and for the last six months ran the company entirely on my own: kitchen, marketing, sales, purchasing, couriers.", "sv.k": "What I do", "sv.h": "From development to advertising that pays off", "sv.c1": "Development", "sv.1a": "Unique selling proposition and offer", "sv.1b": "Website development", "sv.1c": "Building and packaging the sales funnel", "sv.c2": "Advertising", "sv.2a": "Setting up and running ad accounts on Facebook, Instagram, Google, TikTok", "sv.2b": "Ad copy that hooks your specific audience", "sv.c3": "Analytics", "sv.3a": "Marketing metrics analysis", "sv.3b": "Management reporting analysis", "sv.3c": "Calculating true customer cost and advertising return (ROMI)", "ca.k": "ROMI calculator", "ca.h": "Will advertising pay off in your business?", "ca.p": "Enter your own numbers. If the result is negative even with a good cost per lead, the problem isn’t advertising but your product economics or sales.", "ca.l1": "Ad budget, ₸/month", "ca.l2": "Cost per lead, ₸", "ca.l3": "Lead → sale, %", "ca.l4": "Average order value, ₸", "ca.l5": "Margin per sale, %", "ca.l6": "Other marketing costs, ₸", "ca.note": "Sample values are shown for illustration.", "ca.r1": "Leads", "ca.r2": "Sales", "ca.r3": "Revenue", "ca.r4": "Gross margin", "ca.r5": "Total marketing costs", "ca.tot": "Monthly result", "ca.romi": "ROMI shows what percentage of profit each tenge invested in marketing has returned.", "fi.k": "Who I work with", "fi.h": "I don’t take everyone, and that’s in your interest", "fi.p": "If advertising won’t pay off in your niche, I’ll tell you so directly during the audit.", "fi.yes": "We’ll work well together if", "fi.y1": "You understand the value of marketing and are ready to trust it to a specialist", "fi.y2": "Your product is competitive", "fi.y3": "You understand that sales growth depends on your whole team, not just the marketer", "fi.y4": "You’re comfortable working remotely: calls or video instead of office meetings", "fi.no": "I don’t work with you if", "fi.n1": "Your niche: alcohol, tobacco, gambling, mortgages, spiritual practices and the like", "fi.n2": "You need daily reports and control over every step", "fi.n3": "To you, a marketer = “the creative guy”", "ap.k": "Free audit", "ap.h": "I’ll audit your business for free and show you where money is being lost", "ap.p1": "Five short fields, less than a minute. Then WhatsApp opens with a ready message: just tap “Send”.", "ap.p2": "The audit comes with no obligation.", "ap.ph": "WhatsApp and calls", "f.name": "Name", "f.rev": "Monthly revenue", "f.choose": "Select", "rv1": "up to 1M ₸", "rv2": "1–3M ₸", "rv3": "3–10M ₸", "rv4": "10–30M ₸", "rv5": "over 30M ₸", "f.city": "City", "f.niche": "Niche and product", "f.budget": "Monthly ad budget", "bd1": "up to 100,000 ₸", "bd2": "100,000 – 300,000 ₸", "bd3": "300,000 – 1,000,000 ₸", "bd4": "over 1,000,000 ₸", "q.money": "Where does your ad budget come from?", "o.own": "The business’s own money", "o.debt": "A loan or borrowed money", "q.sales": "Are you already making sales?", "o.syes": "Yes, steadily", "o.ssome": "Some, but not many", "o.sno": "Not yet", "o.yes": "Yes", "o.hno": "No or not sure", "q.terms": "Does a remote format work for you: calls and video, contact in the evenings?", "o.tyes": "Yes, that works", "o.tno": "I need meetings and frequent reports", "back": "← Back", "stp.k": "How we work", "stp.h": "Numbers first, then advertising", "s1.h": "Diagnostics", "s1.p": "I review your current ads, funnel and numbers, and show where the business is losing leads and money.", "s2.h": "Goal and plan", "s2.p": "Together we set the goal and what it takes: budget, channels, timelines.", "s3.h": "Launch and results in numbers", "s3.p": "I set up and run the ads, and I’m accountable for specific metrics.", "mt.l": "Metrics I work by:", "mt1": "Leads", "mt2": "Cost per lead", "mt3": "Payback", "cl.k": "My clients", "cl.h": "Companies that trusted me with their marketing", "fn.h": "Want to know whether advertising will pay off in your business?", "fn.p": "Message me on WhatsApp. The audit is free.", "ft.p": "Astana · WhatsApp +7 776 160 00 54", "mb.audit": "Audit", "ph.niche": "E.g. custom furniture, average order 400,000 ₸"}};
+  const TR={"kk": {"nav.about": "Мен туралы", "nav.services": "Қызметтер", "nav.calc": "ROMI калькуляторы", "nav.form": "Сауалнама", "nav.steps": "Кезеңдер", "nav.clients": "Клиенттер", "btn.wa": "WhatsApp-қа жазу", "btn.wa2": "WhatsApp-қа жазу <span class=\"arr\">→</span>", "brand": "<b>Фархад Газитбек</b><small>ШОБ үшін маркетинг</small>", "hero.h1": "Мен <em>сөзіммен және цифрлармен</em> жауап беретін маркетинг", "hero.lead": "Мен агенттік емеспін, бәрін өзім жасаймын. Диагностика жүргізіп, цифрлар бойынша нақты жағдайды көрсетемін және өзін-өзі ақтайтын жарнама құрамын.", "hero.cta": "Тегін талдау алу <span class=\"arr\">→</span>", "hero.call": "Қоңырау шалыңыз", "copy": "Көшіру", "st1": "жыл маркетингте", "st2": "ҚР бойынша жоба", "st3": "бизнес саласы", "st4": "жарнама бюджеті", "ticker": "<b>Маған сенеді</b>әртүрлі саладағы компаниялар", "ab.k": "Мен туралы · Фархад Газитбек, Астана", "ab.h": "Бизнесті жарнама кабинетінен ғана емес, ішінен білемін", "ab.big": "Өз компанияларымды өзім іске қосып, басқардым: инвестиция тарттым, ақша санадым, адам жалдадым және нәтижеге жауап бердім.", "ab.pull": "Сондықтан жарнамаға бизнес иесі ретінде қараймын. Ол сатумен және воронкамен бірге жұмыс істеуі керек, бизнестен бөлек өмір сүрмеуі тиіс.", "biz.h": "Мен іске қосқан бизнестер", "biz.s": "Маркетологтың ғана емес, кәсіпкердің тәжірибесі", "b1.m": "Негізін қаладым · 2022", "b1.h": "Маркетинг агенттігі", "b1.p": "Gazitbek Marketing Consult агенттігінің негізін қаладым: ҚР бойынша ШОБ-қа консалтинг. Кәсіпкерлерге кеңес бердім, мамандарды басқардым: трафик-менеджерлер, сайт әзірлеушілер, дизайнерлер, SMM, CRM және т.б.", "b2.m": "Іске қостым · 2023–2024", "b2.h": "Кілтке дейін жөндеу", "b2.p": "Серіктестермен бірге Астанада пәтер жөндеу компаниясын іске қостым: маркетинг пен сату бөліміне жауап бердім.", "b3.m": "Іске қостым · 2024", "b3.h": "Kaspi дүкені", "b3.p": "Kaspi-де өз электроника дүкенімді аштым: талдау, тауар таңдау және сатып алудан бастап сату мен пікір жинауға дейін.", "b4.m": "Тең құрылтайшы · 2024–2025", "b4.h": "SAQ — шығыс тағамдарын жеткізу", "b4.p": "Астанадағы жеткізу қызметінің тең құрылтайшысы. Маркетинг пен сатуға жауап бердім, ал соңғы жарты жыл компанияны толығымен өзім басқардым: ас үй, маркетинг, сату, сатып алу, курьерлер.", "sv.k": "Не істеймін", "sv.h": "Әзірлеуден жарнаманың өзін-өзі ақтауына дейін", "sv.c1": "Әзірлеу", "sv.1a": "Бірегей сауда ұсынысы және оффер", "sv.1b": "Сайт әзірлеу", "sv.1c": "Сату воронкасын құру және рәсімдеу", "sv.c2": "Жарнама", "sv.2a": "Facebook, Instagram, Google, TikTok жарнама кабинеттерін баптау және жүргізу", "sv.2b": "Дәл сіздің аудиторияңызды елең еткізетін жарнама мәтіндері", "sv.c3": "Талдау", "sv.3a": "Маркетинг көрсеткіштерін талдау", "sv.3b": "Басқарушылық есептілікті талдау", "sv.3c": "Клиенттің нақты құнын және жарнаманың өтелуін (ROMI) есептеу", "ca.k": "ROMI калькуляторы", "ca.h": "Сіздің бизнесіңізде жарнама өзін-өзі ақтай ма?", "ca.p": "Өз цифрларыңызды енгізіңіз. Өтінім құны жақсы болса да нәтиже минуста болса, мәселе жарнамада емес, өнім экономикасында немесе сатуда.", "ca.l1": "Жарнама бюджеті, ₸/ай", "ca.l2": "Өтінім құны, ₸", "ca.l3": "Өтінім → сатылым, %", "ca.l4": "Орташа чек, ₸", "ca.l5": "Сатылымнан маржа, %", "ca.l6": "Маркетингке өзге шығындар, ₸", "ca.note": "Мысал ретінде шамамен алынған мәндер көрсетілген.", "ca.r1": "Өтінімдер", "ca.r2": "Сатылымдар", "ca.r3": "Түсім", "ca.r4": "Сатылымнан маржа", "ca.r5": "Маркетингке барлық шығын", "ca.tot": "Айлық нәтиже", "ca.romi": "ROMI маркетингке салынған әр теңгенің қанша пайыз пайда әкелгенін көрсетеді.", "fi.k": "Кіммен жұмыс істеймін", "fi.h": "Барлығын ала бермеймін, және бұл сіздің мүддеңізде", "fi.p": "Егер сіздің салаңызда жарнама өзін ақтамаса, мұны талдау кезінде ашық айтамын.", "fi.yes": "Бірге жұмыс істей аламыз, егер", "fi.y1": "Маркетингтің құндылығын түсінесіз және оны маманға сеніп тапсыруға дайынсыз", "fi.y2": "Өнім бәсекеге қабілетті", "fi.y3": "Сатылымның өсуі маркетологқа ғана емес, бүкіл командаңызға байланысты екенін түсінесіз", "fi.y4": "Қашықтан жұмыс істеу ыңғайлы: кеңседегі кездесудің орнына қоңырау немесе бейнебайланыс", "fi.no": "Жұмыс істемеймін, егер", "fi.n1": "Сала: алкоголь, темекі, құмар ойындар, ипотека, рухани практикалар және сол сияқтылар", "fi.n2": "Микроменеджмент қажет (күнделікті есептер және әр қадамды келісу)", "fi.n3": "Сіз үшін маркетолог = «креативщик»", "ap.k": "Тегін талдау", "ap.h": "Бизнесіңізді тегін талдап, ақша қай жерде жоғалып жатқанын көрсетемін", "ap.p1": "Бес қысқа жол, бір минуттан аз. Содан кейін дайын хабарламасы бар WhatsApp ашылады: тек «Жіберу» батырмасын басу қалады.", "ap.p2": "Талдау сізді ешнәрсеге міндеттемейді.", "ap.ph": "WhatsApp және қоңыраулар", "f.name": "Аты", "f.rev": "Айлық түсім", "f.choose": "Таңдаңыз", "rv1": "1 млн ₸-ге дейін", "rv2": "1–3 млн ₸", "rv3": "3–10 млн ₸", "rv4": "10–30 млн ₸", "rv5": "30 млн ₸-ден жоғары", "f.city": "Қала", "f.niche": "Сала және өнім", "f.budget": "Айлық жарнама бюджеті", "bd1": "100 000 ₸-ге дейін", "bd2": "100 000 – 300 000 ₸", "bd3": "300 000 – 1 000 000 ₸", "bd4": "1 000 000 ₸-ден жоғары", "q.money": "Жарнама бюджеті қайдан?", "o.own": "Бизнестің өз қаражаты", "o.debt": "Несие немесе қарыз", "q.sales": "Сатылым бар ма?", "o.syes": "Иә, тұрақты", "o.ssome": "Бар, бірақ аз", "o.sno": "Әлі бастаған жоқпыз", "o.yes": "Иә", "o.hno": "Жоқ немесе сенімді емеспін", "q.terms": "Қашықтан жұмыс форматы ыңғайлы ма: қоңырау мен бейнебайланыс, кешкі уақытта хабарласу?", "o.tyes": "Иә, ыңғайлы", "o.tno": "Кездесулер мен жиі есеп қажет", "back": "← Артқа", "stp.k": "Жұмыс кезеңдері", "stp.h": "Алдымен цифрлар, содан кейін жарнама", "s1.h": "Диагностика", "s1.p": "Ағымдағы жарнаманы, воронканы және цифрларды қараймын. Бизнес өтінімдер мен ақшаны қай жерде жоғалтып жатқанын көрсетемін.", "s2.h": "Мақсат және жоспар", "s2.p": "Бірге мақсатты және оған не қажет екенін анықтаймыз: бюджет, арналар, мерзімдер.", "s3.h": "Іске қосу және цифрлармен нәтиже", "s3.p": "Жарнаманы баптап, жүргіземін. Нақты көрсеткіштерге жауап беремін.", "mt.l": "Мен жұмыс істейтін көрсеткіштер:", "mt1": "Өтінімдер", "mt2": "Лид құны", "mt3": "Өтелу", "cl.k": "Менің клиенттерім", "cl.h": "Маркетингін маған сеніп тапсырған компаниялар", "fn.h": "Бизнесіңізде жарнама өзін-өзі ақтай ма, білгіңіз келе ме?", "fn.p": "WhatsApp-қа жазыңыз. Талдау тегін.", "ft.p": "Астана · <a class=\"tel\" href=\"tel:+77761600054\">+7 776 160 00 54</a>", "mb.audit": "Талдау", "ph.niche": "Мысалы: тапсырыспен жиһаз, орташа чек 400 000 ₸"}, "en": {"nav.about": "About", "nav.services": "Services", "nav.calc": "ROMI calculator", "nav.form": "Application", "nav.steps": "Process", "nav.clients": "Clients", "btn.wa": "Message on WhatsApp", "btn.wa2": "Message on WhatsApp <span class=\"arr\">→</span>", "brand": "<b>Farkhad Gazitbek</b><small>Marketing for SMEs</small>", "hero.h1": "Marketing I stand behind <em>with my word and my numbers</em>", "hero.lead": "I’m not an agency: I do everything myself. I’ll run a diagnostic, show you the real picture in numbers and build advertising that pays for itself.", "hero.cta": "Get a free audit <span class=\"arr\">→</span>", "hero.call": "Call me", "copy": "Copy", "st1": "years in marketing", "st2": "projects across Kazakhstan", "st3": "business niches", "st4": "in ad budgets", "ticker": "<b>Trusted by</b>companies from many niches", "ab.k": "About me · Farkhad Gazitbek, Astana", "ab.h": "I know business from the inside, not just from an ad account", "ab.big": "I’ve launched and run my own companies: raised investment, counted the money, hired people and answered for the results.", "ab.pull": "That’s why I look at advertising like an owner. It has to work together with sales and the funnel, not live separately from the business.", "biz.h": "Businesses I’ve launched", "biz.s": "An entrepreneur’s experience, not just a marketer’s", "b1.m": "Founded · 2022", "b1.h": "Marketing agency", "b1.p": "Founded the Gazitbek Marketing Consult agency: consulting for SMEs across Kazakhstan. Advised entrepreneurs and managed specialists: traffic managers, web developers, designers, SMM, CRM and more.", "b2.m": "Launched · 2023–2024", "b2.h": "Turnkey renovation", "b2.p": "Launched an apartment renovation company in Astana together with partners, responsible for marketing and the sales team.", "b3.m": "Launched · 2024", "b3.h": "Kaspi store", "b3.p": "Launched my own electronics store on Kaspi: from analytics, product selection and purchasing to sales and collecting reviews.", "b4.m": "Co-founder · 2024–2025", "b4.h": "SAQ — Eastern food delivery", "b4.p": "Co-founder of a delivery service in Astana. I handled marketing and sales, and for the last six months ran the company entirely on my own: kitchen, marketing, sales, purchasing, couriers.", "sv.k": "What I do", "sv.h": "From development to advertising that pays off", "sv.c1": "Development", "sv.1a": "Unique selling proposition and offer", "sv.1b": "Website development", "sv.1c": "Building and packaging the sales funnel", "sv.c2": "Advertising", "sv.2a": "Setting up and running ad accounts on Facebook, Instagram, Google, TikTok", "sv.2b": "Ad copy that hooks your specific audience", "sv.c3": "Analytics", "sv.3a": "Marketing metrics analysis", "sv.3b": "Management reporting analysis", "sv.3c": "Calculating true customer cost and advertising return (ROMI)", "ca.k": "ROMI calculator", "ca.h": "Will advertising pay off in your business?", "ca.p": "Enter your own numbers. If the result is negative even with a good cost per lead, the problem isn’t advertising but your product economics or sales.", "ca.l1": "Ad budget, ₸/month", "ca.l2": "Cost per lead, ₸", "ca.l3": "Lead → sale, %", "ca.l4": "Average order value, ₸", "ca.l5": "Margin per sale, %", "ca.l6": "Other marketing costs, ₸", "ca.note": "Sample values are shown for illustration.", "ca.r1": "Leads", "ca.r2": "Sales", "ca.r3": "Revenue", "ca.r4": "Gross margin", "ca.r5": "Total marketing costs", "ca.tot": "Monthly result", "ca.romi": "ROMI shows what percentage of profit each tenge invested in marketing has returned.", "fi.k": "Who I work with", "fi.h": "I don’t take everyone, and that’s in your interest", "fi.p": "If advertising won’t pay off in your niche, I’ll tell you so directly during the audit.", "fi.yes": "We’ll work well together if", "fi.y1": "You understand the value of marketing and are ready to trust it to a specialist", "fi.y2": "Your product is competitive", "fi.y3": "You understand that sales growth depends on your whole team, not just the marketer", "fi.y4": "You’re comfortable working remotely: calls or video instead of office meetings", "fi.no": "I don’t work with you if", "fi.n1": "Your niche: alcohol, tobacco, gambling, mortgages, spiritual practices and the like", "fi.n2": "You need micromanagement (daily reports and sign-off on every step)", "fi.n3": "To you, a marketer = “the creative guy”", "ap.k": "Free audit", "ap.h": "I’ll audit your business for free and show you where money is being lost", "ap.p1": "Five short fields, less than a minute. Then WhatsApp opens with a ready message: just tap “Send”.", "ap.p2": "The audit comes with no obligation.", "ap.ph": "WhatsApp and calls", "f.name": "Name", "f.rev": "Monthly revenue", "f.choose": "Select", "rv1": "up to 1M ₸", "rv2": "1–3M ₸", "rv3": "3–10M ₸", "rv4": "10–30M ₸", "rv5": "over 30M ₸", "f.city": "City", "f.niche": "Niche and product", "f.budget": "Monthly ad budget", "bd1": "up to 100,000 ₸", "bd2": "100,000 – 300,000 ₸", "bd3": "300,000 – 1,000,000 ₸", "bd4": "over 1,000,000 ₸", "q.money": "Where does your ad budget come from?", "o.own": "The business’s own money", "o.debt": "A loan or borrowed money", "q.sales": "Are you already making sales?", "o.syes": "Yes, steadily", "o.ssome": "Some, but not many", "o.sno": "Not yet", "o.yes": "Yes", "o.hno": "No or not sure", "q.terms": "Does a remote format work for you: calls and video, contact in the evenings?", "o.tyes": "Yes, that works", "o.tno": "I need meetings and frequent reports", "back": "← Back", "stp.k": "How we work", "stp.h": "Numbers first, then advertising", "s1.h": "Diagnostics", "s1.p": "I review your current ads, funnel and numbers, and show where the business is losing leads and money.", "s2.h": "Goal and plan", "s2.p": "Together we set the goal and what it takes: budget, channels, timelines.", "s3.h": "Launch and results in numbers", "s3.p": "I set up and run the ads, and I’m accountable for specific metrics.", "mt.l": "Metrics I work by:", "mt1": "Leads", "mt2": "Cost per lead", "mt3": "Payback", "cl.k": "My clients", "cl.h": "Companies that trusted me with their marketing", "fn.h": "Want to know whether advertising will pay off in your business?", "fn.p": "Message me on WhatsApp. The audit is free.", "ft.p": "Astana · <a class=\"tel\" href=\"tel:+77761600054\">+7 776 160 00 54</a>", "mb.audit": "Audit", "ph.niche": "E.g. custom furniture, average order 400,000 ₸"}};
   Object.assign(TR.kk,{"ft.who": "Газитбек Фархад Алтынсарыұлы", "ft.pp": "Құпиялылық саясаты", "f.consent": "Деректерді өңдеуге келісемін және <a href=\"#privacy\" class=\"pp-link\">құпиялылық саясатын</a> қабылдаймын"});Object.assign(TR.en,{"ft.who": "Gazitbek Farkhad Altynsaryuly", "ft.pp": "Privacy policy", "f.consent": "I agree to the processing of my data and accept the <a href=\"#privacy\" class=\"pp-link\">privacy policy</a>"});
   const T={
     ru:{titles:["О бизнесе","Бюджет и продажи","Формат работы"],step:n=>"Шаг "+n+" из 3",next:"Далее",submit:"Получить бесплатный разбор",
@@ -791,6 +828,7 @@ body.pp-open{overflow:hidden}
 
   /* анкета */
   const err=$("f-err"),out=$("f-out");
+  let formCompleteTracked=false;
   function show(){
     const L=T[lang];
     $("f-next").innerHTML=L.submit+' <span class="arr">→</span>';
@@ -800,23 +838,26 @@ body.pp-open{overflow:hidden}
     e.preventDefault();
     const L=T[lang];
     let msgErr="";
-    if(!$("f-name").value.trim()||!$("f-revenue").value||!$("f-niche").value.trim()||!$("f-budget").value)msgErr=L.err1;
-    else if(!$("f-consent").checked)msgErr=L.err3;
+    if(!$("f-consent").checked)msgErr=L.err3;
     if(msgErr){err.textContent=msgErr;err.hidden=false;out.hidden=true;return;}
     err.hidden=true;
-    const sel=id=>{const o=$(id).selectedOptions[0];return o?o.textContent:"";};
+    const sel=id=>{const o=$(id).selectedOptions[0];return o&&o.value!==""?o.textContent:"";};
     const name=$("f-name").value.trim(),revenue=sel("f-revenue"),city=$("f-city").value.trim(),niche=$("f-niche").value.trim(),budget=sel("f-budget");
     const M=L.m;
-    const msg=M.hi+"\n"+
-      M.name+": "+name+"\n"+M.rev+": "+revenue+"\n"+(city?M.city+": "+city+"\n":"")+
-      M.niche+": "+niche+"\n"+
-      M.budget+": "+budget;
+    const msg=[M.hi,name&&M.name+": "+name,revenue&&M.rev+": "+revenue,city&&M.city+": "+city,niche&&M.niche+": "+niche,budget&&M.budget+": "+budget].filter(Boolean).join("\n");
+    if(!formCompleteTracked){
+      ym(113265995, "reachGoal", "form_complete");
+      formCompleteTracked=true;
+    }
     out.hidden=false;
     out.className="out ok";
-    out.innerHTML="<strong>"+L.okT+"</strong><p>"+L.okP+" <b>+7 776 160 00 54</b>.</p>";
+    out.innerHTML="<strong>"+L.okT+"</strong><p>"+L.okP+" <a class='tel' href='tel:+77761600054'><b>+7 776 160 00 54</b></a>.</p>";
     const a=document.createElement("a");
     a.className="btn btn-cobalt";a.href="https://wa.me/"+WA+"?text="+encodeURIComponent(msg);a.target="_blank";a.rel="noopener";
     a.textContent=L.openWA;
+    a.addEventListener("click",function(){
+      ym(113265995, "reachGoal", "whatsapp_form");
+    });
     out.appendChild(a);
   });
 
